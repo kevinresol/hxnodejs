@@ -51,6 +51,6 @@ extern class Sign extends Writable<Sign> {
 
 		Note: sign object can not be used after `sign` method has been called.
 	**/
-	@:overload(function(private_key:String):Buffer {})
-	function sign(private_key:String, output_format:String):String;
+	@:overload(function(private_key:EitherType<String, {key:String, passphrase:String}>):Buffer {})
+	function sign(private_key:EitherType<String, {key:String, passphrase:String}>, output_format:String):String;
 }
