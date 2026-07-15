@@ -84,7 +84,7 @@ enum abstract DuplexEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
 
 		@see https://nodejs.org/api/stream.html#stream_event_data
 	**/
-	var Data:DuplexEvent<Dynamic->Void> = "data";
+	var Data:DuplexEvent<Any->Void> = "data";
 
 	/**
 		The `'end'` event is emitted when there is no more data to be consumed from
@@ -169,7 +169,7 @@ extern class Duplex<TSelf:Duplex<TSelf>> extends Readable<TSelf> implements IDup
 		@see https://nodejs.org/api/stream.html#stream_writable_end_chunk_encoding_callback
 	**/
 	@:overload(function(?callback:EitherType<Void->Void, Null<Error>->Void>):TSelf {})
-	function end(chunk:Dynamic, ?encoding:String, ?callback:EitherType<Void->Void, Null<Error>->Void>):TSelf;
+	function end(chunk:Any, ?encoding:String, ?callback:EitherType<Void->Void, Null<Error>->Void>):TSelf;
 
 	/**
 		The `writable.setDefaultEncoding()` method sets the default `encoding` for a Writable stream.
@@ -266,7 +266,7 @@ extern class Duplex<TSelf:Duplex<TSelf>> extends Readable<TSelf> implements IDup
 
 		@see https://nodejs.org/api/stream.html#stream_writable_write_chunk_encoding_callback
 	**/
-	function write(chunk:Dynamic, ?encoding:String, ?callback:EitherType<Void->Void, Null<Error>->Void>):Bool;
+	function write(chunk:Any, ?encoding:String, ?callback:EitherType<Void->Void, Null<Error>->Void>):Bool;
 
 	// --------- API for implementing a Writable Stream -----------------------
 	// function new(?options:DuplexNewOptions);
@@ -284,7 +284,7 @@ extern class Duplex<TSelf:Duplex<TSelf>> extends Readable<TSelf> implements IDup
 
 		@see https://nodejs.org/api/stream.html#stream_writable_write_chunk_encoding_callback_1
 	**/
-	private function _write(chunk:Dynamic, encoding:String, callback:Null<Error>->Void):Void;
+	private function _write(chunk:Any, encoding:String, callback:Null<Error>->Void):Void;
 
 	/**
 		This function MUST NOT be called by application code directly.

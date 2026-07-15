@@ -53,7 +53,7 @@ enum abstract ReadableEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
 
 		@see https://nodejs.org/api/stream.html#stream_event_data
 	**/
-	var Data:ReadableEvent<Dynamic->Void> = "data";
+	var Data:ReadableEvent<Any->Void> = "data";
 
 	/**
 		The `'end'` event is emitted when there is no more data to be consumed from
@@ -155,7 +155,7 @@ extern class Readable<TSelf:Readable<TSelf>> extends Stream<TSelf> implements IR
 
 		@see https://nodejs.org/api/stream.html#stream_readable_read_size
 	**/
-	function read(?size:Int):Null<Dynamic>;
+	function read(?size:Int):Null<Any>;
 
 	/**
 		Is `true` if it is safe to call `readable.read()`.
@@ -250,7 +250,7 @@ extern class Readable<TSelf:Readable<TSelf>> extends Stream<TSelf> implements IR
 
 		@see https://nodejs.org/api/stream.html#stream_readable_unshift_chunk_encoding
 	**/
-	function unshift(chunk:Null<Dynamic>, ?encoding:String):Void;
+	function unshift(chunk:Null<Any>, ?encoding:String):Void;
 
 	/**
 		Prior to Node.js 0.10, streams did not implement the entire `stream` module API as it is currently defined.
@@ -258,7 +258,7 @@ extern class Readable<TSelf:Readable<TSelf>> extends Stream<TSelf> implements IR
 
 		@see https://nodejs.org/api/stream.html#stream_readable_wrap_stream
 	**/
-	function wrap(stream:Dynamic):IReadable;
+	function wrap(stream:Any):IReadable;
 
 	/**
 		`readable.compose(stream)` is equivalent to `stream.compose(readable, stream)`.
@@ -282,7 +282,7 @@ extern class Readable<TSelf:Readable<TSelf>> extends Stream<TSelf> implements IR
 
 		@see https://nodejs.org/api/stream.html#readablemapfn-options
 	**/
-	function map(fn:Dynamic->Dynamic, ?options:ReadableMapOptions):IReadable;
+	function map(fn:Any->Any, ?options:ReadableMapOptions):IReadable;
 
 	/**
 		This method allows filtering the stream. Chunks for which `fn` returns a truthy
@@ -292,7 +292,7 @@ extern class Readable<TSelf:Readable<TSelf>> extends Stream<TSelf> implements IR
 
 		@see https://nodejs.org/api/stream.html#readablefilterfn-options
 	**/
-	function filter(fn:Dynamic->Dynamic, ?options:ReadableMapOptions):IReadable;
+	function filter(fn:Any->Any, ?options:ReadableMapOptions):IReadable;
 
 	/**
 		This method allows iterating a stream. For each chunk, `fn` is called.
@@ -302,7 +302,7 @@ extern class Readable<TSelf:Readable<TSelf>> extends Stream<TSelf> implements IR
 
 		@see https://nodejs.org/api/stream.html#readableforeachfn-options
 	**/
-	function forEach(fn:Dynamic->Dynamic, ?options:ReadableForEachOptions):js.lib.Promise<Void>;
+	function forEach(fn:Any->Any, ?options:ReadableForEachOptions):js.lib.Promise<Void>;
 
 	/**
 		This method allows easily obtaining the contents of a stream as an array.
@@ -311,7 +311,7 @@ extern class Readable<TSelf:Readable<TSelf>> extends Stream<TSelf> implements IR
 
 		@see https://nodejs.org/api/stream.html#readabletoarrayoptions
 	**/
-	function toArray(?options:ReadableSignalOptions):js.lib.Promise<Array<Dynamic>>;
+	function toArray(?options:ReadableSignalOptions):js.lib.Promise<Array<Any>>;
 
 	/**
 		This method is similar to `Array.prototype.some` and calls `fn` on each chunk
@@ -321,7 +321,7 @@ extern class Readable<TSelf:Readable<TSelf>> extends Stream<TSelf> implements IR
 
 		@see https://nodejs.org/api/stream.html#readablesomefn-options
 	**/
-	function some(fn:Dynamic->Dynamic, ?options:ReadableForEachOptions):js.lib.Promise<Bool>;
+	function some(fn:Any->Any, ?options:ReadableForEachOptions):js.lib.Promise<Bool>;
 
 	/**
 		This method is similar to `Array.prototype.find` and calls `fn` on each chunk
@@ -331,7 +331,7 @@ extern class Readable<TSelf:Readable<TSelf>> extends Stream<TSelf> implements IR
 
 		@see https://nodejs.org/api/stream.html#readablefindfn-options
 	**/
-	function find(fn:Dynamic->Dynamic, ?options:ReadableForEachOptions):js.lib.Promise<Null<Dynamic>>;
+	function find(fn:Any->Any, ?options:ReadableForEachOptions):js.lib.Promise<Null<Any>>;
 
 	/**
 		This method is similar to `Array.prototype.every` and calls `fn` on each chunk
@@ -341,7 +341,7 @@ extern class Readable<TSelf:Readable<TSelf>> extends Stream<TSelf> implements IR
 
 		@see https://nodejs.org/api/stream.html#readableeveryfn-options
 	**/
-	function every(fn:Dynamic->Dynamic, ?options:ReadableForEachOptions):js.lib.Promise<Bool>;
+	function every(fn:Any->Any, ?options:ReadableForEachOptions):js.lib.Promise<Bool>;
 
 	/**
 		This method allows mapping over a stream, flattening the return value (sync
@@ -351,7 +351,7 @@ extern class Readable<TSelf:Readable<TSelf>> extends Stream<TSelf> implements IR
 
 		@see https://nodejs.org/api/stream.html#readableflatmapfn-options
 	**/
-	function flatMap(fn:Dynamic->Dynamic, ?options:ReadableMapOptions):IReadable;
+	function flatMap(fn:Any->Any, ?options:ReadableMapOptions):IReadable;
 
 	/**
 		This method returns a new stream with the first `limit` chunks dropped.
@@ -388,8 +388,8 @@ extern class Readable<TSelf:Readable<TSelf>> extends Stream<TSelf> implements IR
 
 		@see https://nodejs.org/api/stream.html#readablereducefn-initial-options
 	**/
-	@:overload(function(fn:(previous:Dynamic, data:Dynamic) -> Dynamic, ?options:ReadableSignalOptions):js.lib.Promise<Dynamic> {})
-	function reduce(fn:(previous:Dynamic, data:Dynamic) -> Dynamic, initial:Dynamic, ?options:ReadableSignalOptions):js.lib.Promise<Dynamic>;
+	@:overload(function(fn:(previous:Any, data:Any) -> Any, ?options:ReadableSignalOptions):js.lib.Promise<Any> {})
+	function reduce(fn:(previous:Any, data:Any) -> Any, initial:Any, ?options:ReadableSignalOptions):js.lib.Promise<Any>;
 
 	// --------- API for implementing a Readable Stream -----------------------
 
@@ -428,7 +428,7 @@ extern class Readable<TSelf:Readable<TSelf>> extends Stream<TSelf> implements IR
 
 		@see https://nodejs.org/api/stream.html#stream_readable_push_chunk_encoding
 	**/
-	private function push(chunk:Null<Dynamic>, ?encoding:String):Bool;
+	private function push(chunk:Null<Any>, ?encoding:String):Bool;
 
 	// --------- TTY module API  ----------------------------------------------
 
@@ -584,7 +584,7 @@ typedef ReadableForEachOptions = {
 	Minimal async iterator surface used by `readable.iterator` (for `for await...of`).
 **/
 typedef ReadableAsyncIterator = {
-	function next():js.lib.Promise<{done:Bool, ?value:Dynamic}>;
+	function next():js.lib.Promise<{done:Bool, ?value:Any}>;
 }
 
 /**
@@ -625,7 +625,7 @@ extern interface IReadable extends IStream {
 
 	function pipe<T:IWritable>(destination:T, ?options:{?end:Bool}):T;
 
-	function read(?size:Int):Null<Dynamic>;
+	function read(?size:Int):Null<Any>;
 
 	var readable(default, null):Bool;
 
@@ -651,29 +651,29 @@ extern interface IReadable extends IStream {
 
 	function unpipe(?destination:IWritable):IReadable;
 
-	function unshift(chunk:Null<Dynamic>, ?encoding:String):Void;
+	function unshift(chunk:Null<Any>, ?encoding:String):Void;
 
-	function wrap(stream:Dynamic):IReadable;
+	function wrap(stream:Any):IReadable;
 
 	function compose(stream:Any, ?options:StreamComposeOptions):IReadable;
 
 	function iterator(?options:ReadableIteratorOptions):ReadableAsyncIterator;
 
-	function map(fn:Dynamic->Dynamic, ?options:ReadableMapOptions):IReadable;
+	function map(fn:Any->Any, ?options:ReadableMapOptions):IReadable;
 
-	function filter(fn:Dynamic->Dynamic, ?options:ReadableMapOptions):IReadable;
+	function filter(fn:Any->Any, ?options:ReadableMapOptions):IReadable;
 
-	function forEach(fn:Dynamic->Dynamic, ?options:ReadableForEachOptions):js.lib.Promise<Void>;
+	function forEach(fn:Any->Any, ?options:ReadableForEachOptions):js.lib.Promise<Void>;
 
-	function toArray(?options:ReadableSignalOptions):js.lib.Promise<Array<Dynamic>>;
+	function toArray(?options:ReadableSignalOptions):js.lib.Promise<Array<Any>>;
 
-	function some(fn:Dynamic->Dynamic, ?options:ReadableForEachOptions):js.lib.Promise<Bool>;
+	function some(fn:Any->Any, ?options:ReadableForEachOptions):js.lib.Promise<Bool>;
 
-	function find(fn:Dynamic->Dynamic, ?options:ReadableForEachOptions):js.lib.Promise<Null<Dynamic>>;
+	function find(fn:Any->Any, ?options:ReadableForEachOptions):js.lib.Promise<Null<Any>>;
 
-	function every(fn:Dynamic->Dynamic, ?options:ReadableForEachOptions):js.lib.Promise<Bool>;
+	function every(fn:Any->Any, ?options:ReadableForEachOptions):js.lib.Promise<Bool>;
 
-	function flatMap(fn:Dynamic->Dynamic, ?options:ReadableMapOptions):IReadable;
+	function flatMap(fn:Any->Any, ?options:ReadableMapOptions):IReadable;
 
 	function drop(limit:Int, ?options:ReadableSignalOptions):IReadable;
 
@@ -681,6 +681,6 @@ extern interface IReadable extends IStream {
 
 	function asIndexedPairs(?options:ReadableSignalOptions):IReadable;
 
-	@:overload(function(fn:(previous:Dynamic, data:Dynamic) -> Dynamic, ?options:ReadableSignalOptions):js.lib.Promise<Dynamic> {})
-	function reduce(fn:(previous:Dynamic, data:Dynamic) -> Dynamic, initial:Dynamic, ?options:ReadableSignalOptions):js.lib.Promise<Dynamic>;
+	@:overload(function(fn:(previous:Any, data:Any) -> Any, ?options:ReadableSignalOptions):js.lib.Promise<Any> {})
+	function reduce(fn:(previous:Any, data:Any) -> Any, initial:Any, ?options:ReadableSignalOptions):js.lib.Promise<Any>;
 }

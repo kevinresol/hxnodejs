@@ -136,7 +136,7 @@ extern class Writable<TSelf:Writable<TSelf>> extends Stream<TSelf> implements IW
 		@see https://nodejs.org/api/stream.html#stream_writable_end_chunk_encoding_callback
 	**/
 	@:overload(function(?callback:EitherType<Void->Void, Null<Error>->Void>):TSelf {})
-	function end(chunk:Dynamic, ?encoding:String, ?callback:EitherType<Void->Void, Null<Error>->Void>):TSelf;
+	function end(chunk:Any, ?encoding:String, ?callback:EitherType<Void->Void, Null<Error>->Void>):TSelf;
 
 	/**
 		The `writable.setDefaultEncoding()` method sets the default `encoding` for a Writable stream.
@@ -225,7 +225,7 @@ extern class Writable<TSelf:Writable<TSelf>> extends Stream<TSelf> implements IW
 
 		@see https://nodejs.org/api/stream.html#stream_writable_write_chunk_encoding_callback
 	**/
-	function write(chunk:Dynamic, ?encoding:String, ?callback:EitherType<Void->Void, Null<Error>->Void>):Bool;
+	function write(chunk:Any, ?encoding:String, ?callback:EitherType<Void->Void, Null<Error>->Void>):Bool;
 
 	// --------- API for implementing a Writable Stream -----------------------
 
@@ -247,7 +247,7 @@ extern class Writable<TSelf:Writable<TSelf>> extends Stream<TSelf> implements IW
 
 		@see https://nodejs.org/api/stream.html#stream_writable_write_chunk_encoding_callback_1
 	**/
-	private function _write(chunk:Dynamic, encoding:String, callback:Null<Error>->Void):Void;
+	private function _write(chunk:Any, encoding:String, callback:Null<Error>->Void):Void;
 
 	/**
 		This function **MUST NOT** be called by application code directly.
@@ -337,7 +337,7 @@ typedef WritableNewOptions = {
 	/**
 		`write` <Function> Implementation for the stream._write() method.
 	**/
-	@:optional var write:(chunk:Dynamic, encoding:String, callback:Null<Error>->Void) -> Void;
+	@:optional var write:(chunk:Any, encoding:String, callback:Null<Error>->Void) -> Void;
 
 	/**
 		`writev` <Function> Implementation for the stream._writev() method.
@@ -398,7 +398,7 @@ extern interface IWritable extends IStream {
 	var destroyed(default, null):Bool;
 
 	@:overload(function(?callback:EitherType<Void->Void, Null<Error>->Void>):IWritable {})
-	function end(chunk:Dynamic, ?encoding:String, ?callback:EitherType<Void->Void, Null<Error>->Void>):IWritable;
+	function end(chunk:Any, ?encoding:String, ?callback:EitherType<Void->Void, Null<Error>->Void>):IWritable;
 
 	function setDefaultEncoding(encoding:String):IWritable;
 
@@ -422,12 +422,12 @@ extern interface IWritable extends IStream {
 
 	final writableNeedDrain:Bool;
 
-	function write(chunk:Dynamic, ?encoding:String, ?callback:EitherType<Void->Void, Null<Error>->Void>):Bool;
+	function write(chunk:Any, ?encoding:String, ?callback:EitherType<Void->Void, Null<Error>->Void>):Bool;
 
 	var isTTY(default, null):Bool;
 }
 
 typedef Chunk = {
-	var chunk:Dynamic;
+	var chunk:Any;
 	var encoding:String;
 }
