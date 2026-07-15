@@ -574,12 +574,13 @@ extern class Process extends EventEmitter<Process> {
 
 	/**
 		`bigint` form of `process.hrtime()`, returning nanoseconds as a JavaScript bigint.
-		Typed as `Dynamic` until hxnodejs exposes a dedicated BigInt type.
+
+		TODO: replace `Any` with a proper BigInt type when hxnodejs provides one.
 
 		@see https://nodejs.org/api/process.html#processhrtimebigint
 	**/
 	@:native("hrtime.bigint")
-	function hrtimeBigint():Dynamic;
+	function hrtimeBigint():Any;
 
 	/**
 		Alternate way to retrieve `require.main`.
@@ -669,12 +670,16 @@ extern class Process extends EventEmitter<Process> {
 	/**
 		References a value that implements `Symbol.dispose` / ref counting so it keeps the event loop alive.
 
+		TODO: replace `Any` with a typed Refable interface when one is defined.
+
 		@see https://nodejs.org/api/process.html#processrefmayberefable
 	**/
 	function ref(maybeRefable:Any):Void;
 
 	/**
 		Unreferences a previously referenced value.
+
+		TODO: replace `Any` with a typed Refable interface when one is defined.
 
 		@see https://nodejs.org/api/process.html#processunrefmayberefable
 	**/
