@@ -70,7 +70,8 @@ extern class Session extends EventEmitter<Session> {
 		with the message-specific result object.
 
 		Protocol method names and parameter/result shapes follow the Chrome DevTools Protocol;
-		they are typed as `String` / `Dynamic` rather than enumerating the full CDP schema.
+		they are typed as `String` / `Any` rather than enumerating the full CDP schema.
+		TODO: replace `Any` params/result with CDP schema types when available.
 	**/
-	function post(method:String, ?params:Dynamic):Promise<Dynamic>;
+	function post(method:String, ?params:Any):Promise<Any>;
 }

@@ -48,10 +48,9 @@ extern class Inspector {
 		to a public IP/port combination is insecure).
 
 		Returns a Disposable (`{ [Symbol.dispose](): void }`) that calls `inspector.close()`.
-		Typed as `Dynamic` because the returned object only exposes `Symbol.dispose` (no named
-		`dispose()` method) and hxnodejs does not yet model Web IDL `Disposable`.
+		TODO: type as Web IDL `Disposable` when hxnodejs models `Symbol.dispose`.
 	**/
-	static function open(?port:Int, ?host:String, ?wait:Bool):Dynamic;
+	static function open(?port:Int, ?host:String, ?wait:Bool):Any;
 
 	/**
 		Attempts to close all remaining connections, blocking the event loop until all are closed.

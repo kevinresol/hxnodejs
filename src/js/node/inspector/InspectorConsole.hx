@@ -33,31 +33,31 @@ import haxe.extern.Rest;
 	@see https://nodejs.org/docs/latest-v24.x/api/inspector.html#inspectorconsole
 **/
 extern class InspectorConsole {
-	function debug(data:Rest<Dynamic>):Void;
-	function error(data:Rest<Dynamic>):Void;
-	function info(data:Rest<Dynamic>):Void;
-	function log(data:Rest<Dynamic>):Void;
-	function warn(data:Rest<Dynamic>):Void;
-	function dir(data:Rest<Dynamic>):Void;
-	function dirxml(data:Rest<Dynamic>):Void;
-	function table(data:Rest<Dynamic>):Void;
-	function trace(data:Rest<Dynamic>):Void;
-	function group(data:Rest<Dynamic>):Void;
-	function groupCollapsed(data:Rest<Dynamic>):Void;
-	function groupEnd(data:Rest<Dynamic>):Void;
-	function clear(data:Rest<Dynamic>):Void;
-	function count(?label:Dynamic):Void;
-	function countReset(?label:Dynamic):Void;
-	function assert(?value:Dynamic, data:Rest<Dynamic>):Void;
-	function profile(?label:Dynamic):Void;
-	function profileEnd(?label:Dynamic):Void;
-	function time(?label:Dynamic):Void;
-	function timeEnd(?label:Dynamic):Void;
-	function timeLog(?label:Dynamic):Void;
-	function timeStamp(?label:Dynamic):Void;
+	function debug(data:Rest<Any>):Void;
+	function error(data:Rest<Any>):Void;
+	function info(data:Rest<Any>):Void;
+	function log(data:Rest<Any>):Void;
+	function warn(data:Rest<Any>):Void;
+	function dir(data:Rest<Any>):Void;
+	function dirxml(data:Rest<Any>):Void;
+	function table(data:Rest<Any>):Void;
+	function trace(data:Rest<Any>):Void;
+	function group(data:Rest<Any>):Void;
+	function groupCollapsed(data:Rest<Any>):Void;
+	function groupEnd(data:Rest<Any>):Void;
+	function clear(data:Rest<Any>):Void;
+	function count(?label:Any):Void;
+	function countReset(?label:Any):Void;
+	function assert(?value:Any, data:Rest<Any>):Void;
+	function profile(?label:Any):Void;
+	function profileEnd(?label:Any):Void;
+	function time(?label:Any):Void;
+	function timeEnd(?label:Any):Void;
+	function timeLog(?label:Any):Void;
+	function timeStamp(?label:Any):Void;
 
 	/**
 		Creates a new inspector console context with the given name.
 	**/
-	function context(name:Dynamic):Void;
+	function context(name:Any):Void;
 }
