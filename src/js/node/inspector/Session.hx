@@ -60,7 +60,8 @@ enum abstract SessionEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
 **/
 typedef InspectorNotificationMessage = {
 	var method:String;
-	@:optional var params:Dynamic;
+	// TODO: type CDP notification params once a CDP schema is available
+	@:optional var params:Any;
 }
 
 /**
@@ -106,8 +107,9 @@ extern class Session extends EventEmitter<Session> {
 		`callback` is a function that accepts two optional arguments: error and message-specific result.
 
 		Protocol method names and parameter/result shapes follow the Chrome DevTools Protocol;
-		they are typed as `String` / `Dynamic` rather than enumerating the full CDP schema.
+		they are typed as `String` / `Any` rather than enumerating the full CDP schema.
+		TODO: replace `Any` params/result with CDP schema types when available.
 	**/
-	@:overload(function(method:String, ?callback:(error:Null<Error>, result:Dynamic) -> Void):Void {})
-	function post(method:String, ?params:Dynamic, ?callback:(error:Null<Error>, result:Dynamic) -> Void):Void;
+	@:overload(function(method:String, ?callback:(error:Null<Error>, result:Any) -> Void):Void {})
+	function post(method:String, ?params:Any, ?callback:(error:Null<Error>, result:Any) -> Void):Void;
 }
