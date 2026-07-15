@@ -46,8 +46,10 @@ typedef SourceTextModuleOptions = {
 	/**
 		The contextified object to compile and evaluate this module in.
 		If omitted, the module is evaluated in the current execution context.
+
+		// TODO(vm): VmContext<Any> rejected by T:{} constraint; use {} for unknown context shape
 	**/
-	@:optional var context:VmContext<Dynamic>;
+	@:optional var context:VmContext<{}>;
 
 	/**
 		Line number offset displayed in stack traces. Default: `0`.
@@ -64,13 +66,15 @@ typedef SourceTextModuleOptions = {
 
 		// TODO(vm): type initializeImportMeta `(meta, module) -> Void`
 	**/
-	@:optional var initializeImportMeta:Dynamic;
+	@:optional var initializeImportMeta:Any;
 
 	/**
 		Used to specify how modules should be loaded during evaluation when `import()` is called.
 		Experimental modules API.
+
+		// TODO(vm): type importModuleDynamically callback
 	**/
-	@:optional var importModuleDynamically:Dynamic;
+	@:optional var importModuleDynamically:Any;
 }
 
 /**

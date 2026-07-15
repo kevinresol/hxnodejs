@@ -56,7 +56,7 @@ typedef ModuleRequest = {
 		The `"with"` value passed to the WithClause in an ImportDeclaration,
 		or an empty object if no value was provided.
 	**/
-	var attributes:Dynamic;
+	var attributes:Any;
 
 	/**
 		The phase of the requested module (`"source"` or `"evaluation"`).
@@ -91,7 +91,7 @@ extern class Module {
 		If `status` is `'errored'`, this property contains the exception thrown during evaluation.
 		Accessing it otherwise throws.
 	**/
-	var error(default, null):Dynamic;
+	var error(default, null):Any;
 
 	/**
 		The identifier of the current module, as set in the constructor.
@@ -100,13 +100,17 @@ extern class Module {
 
 	/**
 		The contextified object this module belongs to.
+
+		// TODO(vm): VmContext<Any> rejected by T:{} constraint; use {} for unknown context shape
 	**/
-	var context(default, null):VmContext<Dynamic>;
+	var context(default, null):VmContext<{}>;
 
 	/**
 		The namespace object of the module. Available after linking has completed.
+
+		// TODO(vm): type Module Namespace Object
 	**/
-	var namespace(default, null):Dynamic;
+	var namespace(default, null):Any;
 
 	/**
 		Current status of the module.
@@ -125,5 +129,5 @@ extern class Module {
 
 		// TODO(vm): linker callback typing (`specifier`, referencing module, attributes, phase)
 	**/
-	function link(linker:Dynamic):Promise<Void>;
+	function link(linker:Any):Promise<Void>;
 }
