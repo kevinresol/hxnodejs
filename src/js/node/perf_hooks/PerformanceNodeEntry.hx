@@ -35,9 +35,10 @@ extern class PerformanceNodeEntry extends PerformanceEntry {
 	/**
 		Additional detail specific to the `entryType`.
 
+		// TODO: entryType-dependent object; shape varies (gc, http, etc.).
 		@see https://nodejs.org/docs/latest-v24.x/api/perf_hooks.html#performancenodeentrydetail
 	**/
-	final detail:Dynamic;
+	final detail:Any;
 
 	/**
 		Stability: 0 - Deprecated: Use `detail` instead.

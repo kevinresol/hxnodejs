@@ -43,7 +43,7 @@ extern class Histogram {
 		// TODO: type as BigInt when hxnodejs provides one.
 		@see https://nodejs.org/docs/latest-v24.x/api/perf_hooks.html#histogramcountbigint
 	**/
-	final countBigInt:Dynamic;
+	final countBigInt:Any;
 
 	/**
 		The number of times the event loop delay exceeded the maximum 1 hour event loop delay threshold.
@@ -55,9 +55,10 @@ extern class Histogram {
 	/**
 		The number of times the event loop delay exceeded the maximum 1 hour event loop delay threshold (as a BigInt).
 
+		// TODO: type as BigInt when hxnodejs provides one.
 		@see https://nodejs.org/docs/latest-v24.x/api/perf_hooks.html#histogramexceedsbigint
 	**/
-	final exceedsBigInt:Dynamic;
+	final exceedsBigInt:Any;
 
 	/**
 		The maximum recorded event loop delay.
@@ -69,9 +70,10 @@ extern class Histogram {
 	/**
 		The maximum recorded event loop delay (as a BigInt).
 
+		// TODO: type as BigInt when hxnodejs provides one.
 		@see https://nodejs.org/docs/latest-v24.x/api/perf_hooks.html#histogrammaxbigint
 	**/
-	final maxBigInt:Dynamic;
+	final maxBigInt:Any;
 
 	/**
 		The mean of the recorded event loop delays.
@@ -90,9 +92,10 @@ extern class Histogram {
 	/**
 		The minimum recorded event loop delay (as a BigInt).
 
+		// TODO: type as BigInt when hxnodejs provides one.
 		@see https://nodejs.org/docs/latest-v24.x/api/perf_hooks.html#histogramminbigint
 	**/
-	final minBigInt:Dynamic;
+	final minBigInt:Any;
 
 	/**
 		Returns the value at the given percentile.
@@ -108,9 +111,10 @@ extern class Histogram {
 
 		@param percentile A percentile value in the range (0, 100].
 
+		// TODO: type as BigInt when hxnodejs provides one.
 		@see https://nodejs.org/docs/latest-v24.x/api/perf_hooks.html#histogrampercentilebigintpercentile
 	**/
-	function percentileBigInt(percentile:Float):Dynamic;
+	function percentileBigInt(percentile:Float):Any;
 
 	/**
 		Returns a `Map` object detailing the accumulated percentile distribution.
@@ -125,7 +129,7 @@ extern class Histogram {
 		// TODO: type as Map<BigInt, BigInt> when hxnodejs provides BigInt.
 		@see https://nodejs.org/docs/latest-v24.x/api/perf_hooks.html#histogrampercentilesbigint
 	**/
-	final percentilesBigInt:Dynamic;
+	final percentilesBigInt:Any;
 
 	/**
 		Resets the collected histogram data.

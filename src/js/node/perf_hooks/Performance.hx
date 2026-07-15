@@ -132,9 +132,10 @@ extern class Performance extends EventTarget {
 
 		This property is an extension by Node.js. It is not available in Web browsers.
 
+		// TODO: timingInfo/bodyInfo lack Fetch TimingInfo typedefs; global is the JS global object.
 		@see https://nodejs.org/docs/latest-v24.x/api/perf_hooks.html#performancemarkresourcetimingtiminginfo-requestedurl-initiatortype-global-cachemode-bodyinfo-responsestatus-deliverytype
 	**/
-	function markResourceTiming(timingInfo:Dynamic, requestedUrl:String, initiatorType:String, global:Dynamic, cacheMode:String, bodyInfo:Dynamic,
+	function markResourceTiming(timingInfo:Any, requestedUrl:String, initiatorType:String, global:Any, cacheMode:String, bodyInfo:Any,
 		responseStatus:Int, ?deliveryType:String):PerformanceResourceTiming;
 
 	/**
@@ -198,9 +199,10 @@ extern class Performance extends EventTarget {
 	/**
 		An object which is JSON representation of the `performance` object.
 
+		// TODO: no dedicated typedef for the serialized performance shape yet.
 		@see https://nodejs.org/docs/latest-v24.x/api/perf_hooks.html#performancetojson
 	**/
-	function toJSON():Dynamic;
+	function toJSON():Any;
 
 	/**
 		Event handler for the `'resourcetimingbufferfull'` event.
