@@ -96,7 +96,7 @@ extern class SourceMap {
 
 		@see https://nodejs.org/api/module.html#sourcemappayload
 	**/
-	var payload(default, null):SourceMapPayload;
+	final payload:SourceMapPayload;
 
 	/**
 		Given zero-indexed offsets in the generated source, returns the corresponding
