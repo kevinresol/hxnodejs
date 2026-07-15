@@ -990,8 +990,8 @@ private class Helper {
 @:jsRequire("buffer")
 private extern class BufferModule {
 	static var INSPECT_MAX_BYTES:Int;
-	static final kMaxLength:Int;
-	static final kStringMaxLength:Int;
+	static var kMaxLength(default, never):Int;
+	static var kStringMaxLength(default, never):Int;
 	static function transcode(source:Uint8Array, fromEnc:String, toEnc:String):Buffer;
 	static function isUtf8(input:EitherType<ArrayBufferView, ArrayBuffer>):Bool;
 	static function isAscii(input:EitherType<ArrayBufferView, ArrayBuffer>):Bool;
