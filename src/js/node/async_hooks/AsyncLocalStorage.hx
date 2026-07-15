@@ -55,7 +55,7 @@ extern class AsyncLocalStorage<T> {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/async_context.html#asynclocalstoragerunstore-callback-args
 	**/
-	function run<R>(store:T, callback:Function, args:Rest<Dynamic>):R;
+	function run<R>(store:T, callback:Function, args:Rest<Any>):R;
 
 	/**
 		Transitions into the context for the remainder of the current synchronous
@@ -74,7 +74,7 @@ extern class AsyncLocalStorage<T> {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/async_context.html#asynclocalstorageexitcallback-args
 	**/
-	function exit<R>(callback:Function, args:Rest<Dynamic>):R;
+	function exit<R>(callback:Function, args:Rest<Any>):R;
 
 	/**
 		Returns the current store, or `null`/`undefined` outside of an initialized context.
