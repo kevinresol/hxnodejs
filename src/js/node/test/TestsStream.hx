@@ -224,6 +224,7 @@ typedef TestsStreamCoverageEvent = {
 }
 
 typedef TestsStreamCoverageData = {
-	var summary:Dynamic;
+	/** TODO: type coverage summary (`files`, `totals`, `workingDirectory`, …) from Node `test:coverage`. **/
+	var summary:Any;
 	var nesting:Int;
 }

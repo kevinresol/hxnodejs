@@ -225,12 +225,12 @@ extern class TestContextAssert extends AssertMethods {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/test.html#contextassertfilesnapshotvalue-path-options
 	**/
-	function fileSnapshot(value:Dynamic, path:String, ?options:SnapshotAssertionOptions):Void;
+	function fileSnapshot(value:Any, path:String, ?options:SnapshotAssertionOptions):Void;
 
 	/**
 		Assert against (or update) a snapshot entry for this test.
 
 		@see https://nodejs.org/docs/latest-v24.x/api/test.html#contextassertsnapshotvalue-options
 	**/
-	function snapshot(value:Dynamic, ?options:SnapshotAssertionOptions):Void;
+	function snapshot(value:Any, ?options:SnapshotAssertionOptions):Void;
 }

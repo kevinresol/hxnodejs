@@ -41,26 +41,31 @@ package js.node.test;
 extern class Reporters {
 	/**
 		Compact format: `.` for pass, `X` for fail.
+		TODO: type as transform/callable reporter once a dedicated extern exists.
 	**/
 	static var dot(default, never):Any;
 
 	/**
 		Human-readable default reporter.
+		TODO: type as Transform constructor once a dedicated extern exists.
 	**/
 	static var spec(default, never):Any;
 
 	/**
 		TAP format reporter.
+		TODO: type as transform/callable reporter once a dedicated extern exists.
 	**/
 	static var tap(default, never):Any;
 
 	/**
 		jUnit XML reporter.
+		TODO: type as transform/callable reporter once a dedicated extern exists.
 	**/
 	static var junit(default, never):Any;
 
 	/**
 		LCOV coverage reporter (used with coverage collection).
+		TODO: type as Transform constructor once a dedicated extern exists.
 	**/
 	static var lcov(default, never):Any;
 }

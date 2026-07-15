@@ -223,12 +223,12 @@ extern class Test {
 	May be synchronous, return a `Promise`, or accept a Node-style `done` callback
 	as the second argument.
 **/
-typedef TestCallback = EitherType<TestContext->Dynamic, TestContext->(Null<Error>->Void)->Dynamic>;
+typedef TestCallback = EitherType<TestContext->Any, TestContext->(Null<Error>->Void)->Any>;
 
 /**
 	Callback for a suite created with `suite()` / `describe()`.
 **/
-typedef SuiteCallback = EitherType<SuiteContext->Dynamic, SuiteContext->(Null<Error>->Void)->Dynamic>;
+typedef SuiteCallback = EitherType<SuiteContext->Any, SuiteContext->(Null<Error>->Void)->Any>;
 
 /**
 	Callback for `before` / `after` / `beforeEach` / `afterEach` hooks.
@@ -356,7 +356,7 @@ typedef SnapshotAssertionOptions = {
 	/**
 		Serializers applied in order; final result is coerced to a string.
 	**/
-	@:optional var serializers:Array<Dynamic->Dynamic>;
+	@:optional var serializers:Array<Any->Any>;
 }
 
 /**
@@ -545,7 +545,7 @@ typedef Snapshot = {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/test.html#snapshotsetdefaultsnapshotserializersserializers
 	**/
-	function setDefaultSnapshotSerializers(serializers:Array<Dynamic->Dynamic>):Void;
+	function setDefaultSnapshotSerializers(serializers:Array<Any->Any>):Void;
 
 	/**
 		Customize where snapshot files are written.
