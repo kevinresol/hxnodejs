@@ -173,7 +173,7 @@ extern class Buffer extends Uint8Array {
 		@see https://nodejs.org/api/buffer.html#bufparent
 	**/
 	@:deprecated("Use buffer instead")
-	var parent(default, null):ArrayBuffer;
+	final parent:ArrayBuffer;
 
 	/**
 		Compares `buf` with `target` and returns a number indicating whether `buf` comes before, after,
@@ -998,7 +998,7 @@ private extern class BufferModule {
 	static function atob(data:String):String;
 	static function btoa(data:String):String;
 	static function resolveObjectURL(id:String):Null<js.node.web.Blob>;
-	static var constants(default, never):BufferConstants;
+	static final constants:BufferConstants;
 }
 
 /**
