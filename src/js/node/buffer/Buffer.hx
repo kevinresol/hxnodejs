@@ -145,7 +145,7 @@ extern class Buffer extends Uint8Array {
 
 		@see https://nodejs.org/api/buffer.html#buffer_class_method_buffer_isbuffer_obj
 	**/
-	static function isBuffer(obj:Dynamic):Bool;
+	static function isBuffer(obj:Any):Bool;
 
 	/**
 		Returns `true` if `encoding` contains a supported character encoding, or `false` otherwise.
@@ -260,50 +260,50 @@ extern class Buffer extends Uint8Array {
 	/**
 		Reads a signed 64-bit integer from `buf` at the specified `offset` (big-endian).
 
-		TODO: replace `Dynamic` with a proper BigInt type when hxnodejs provides one.
+		TODO: replace `Any` with a proper BigInt type when hxnodejs provides one.
 
 		@see https://nodejs.org/api/buffer.html#buffer_buf_readbigint64be_offset
 	**/
-	function readBigInt64BE(?offset:Int):Dynamic;
+	function readBigInt64BE(?offset:Int):Any;
 
 	/**
 		Reads a signed 64-bit integer from `buf` at the specified `offset` (little-endian).
 
-		TODO: replace `Dynamic` with a proper BigInt type when hxnodejs provides one.
+		TODO: replace `Any` with a proper BigInt type when hxnodejs provides one.
 
 		@see https://nodejs.org/api/buffer.html#buffer_buf_readbigint64le_offset
 	**/
-	function readBigInt64LE(?offset:Int):Dynamic;
+	function readBigInt64LE(?offset:Int):Any;
 
 	/**
 		Reads an unsigned 64-bit integer from `buf` at the specified `offset` (big-endian).
 
-		TODO: replace `Dynamic` with a proper BigInt type when hxnodejs provides one.
+		TODO: replace `Any` with a proper BigInt type when hxnodejs provides one.
 
 		@see https://nodejs.org/api/buffer.html#buffer_buf_readbiguint64be_offset
 	**/
-	function readBigUInt64BE(?offset:Int):Dynamic;
+	function readBigUInt64BE(?offset:Int):Any;
 
 	/**
 		Alias of `readBigUInt64BE`.
 	**/
 	@:native("readBigUint64BE")
-	function readBigUint64BE(?offset:Int):Dynamic;
+	function readBigUint64BE(?offset:Int):Any;
 
 	/**
 		Reads an unsigned 64-bit integer from `buf` at the specified `offset` (little-endian).
 
-		TODO: replace `Dynamic` with a proper BigInt type when hxnodejs provides one.
+		TODO: replace `Any` with a proper BigInt type when hxnodejs provides one.
 
 		@see https://nodejs.org/api/buffer.html#buffer_buf_readbiguint64le_offset
 	**/
-	function readBigUInt64LE(?offset:Int):Dynamic;
+	function readBigUInt64LE(?offset:Int):Any;
 
 	/**
 		Alias of `readBigUInt64LE`.
 	**/
 	@:native("readBigUint64LE")
-	function readBigUint64LE(?offset:Int):Dynamic;
+	function readBigUint64LE(?offset:Int):Any;
 
 	/**
 		Reads a 64-bit double from `buf` at the specified `offset` with specified endian format
@@ -573,53 +573,53 @@ extern class Buffer extends Uint8Array {
 		Writes `value` to `buf` at the specified `offset` (big-endian).
 		Returns `offset` plus the number of bytes written.
 
-		TODO: replace `Dynamic` with a proper BigInt type when hxnodejs provides one.
+		TODO: replace `Any` with a proper BigInt type when hxnodejs provides one.
 
 		@see https://nodejs.org/api/buffer.html#buffer_buf_writebigint64be_value_offset
 	**/
-	function writeBigInt64BE(value:Dynamic, ?offset:Int):Int;
+	function writeBigInt64BE(value:Any, ?offset:Int):Int;
 
 	/**
 		Writes `value` to `buf` at the specified `offset` (little-endian).
 		Returns `offset` plus the number of bytes written.
 
-		TODO: replace `Dynamic` with a proper BigInt type when hxnodejs provides one.
+		TODO: replace `Any` with a proper BigInt type when hxnodejs provides one.
 
 		@see https://nodejs.org/api/buffer.html#buffer_buf_writebigint64le_value_offset
 	**/
-	function writeBigInt64LE(value:Dynamic, ?offset:Int):Int;
+	function writeBigInt64LE(value:Any, ?offset:Int):Int;
 
 	/**
 		Writes `value` to `buf` at the specified `offset` (big-endian).
 		Returns `offset` plus the number of bytes written.
 
-		TODO: replace `Dynamic` with a proper BigInt type when hxnodejs provides one.
+		TODO: replace `Any` with a proper BigInt type when hxnodejs provides one.
 
 		@see https://nodejs.org/api/buffer.html#buffer_buf_writebiguint64be_value_offset
 	**/
-	function writeBigUInt64BE(value:Dynamic, ?offset:Int):Int;
+	function writeBigUInt64BE(value:Any, ?offset:Int):Int;
 
 	/**
 		Alias of `writeBigUInt64BE`.
 	**/
 	@:native("writeBigUint64BE")
-	function writeBigUint64BE(value:Dynamic, ?offset:Int):Int;
+	function writeBigUint64BE(value:Any, ?offset:Int):Int;
 
 	/**
 		Writes `value` to `buf` at the specified `offset` (little-endian).
 		Returns `offset` plus the number of bytes written.
 
-		TODO: replace `Dynamic` with a proper BigInt type when hxnodejs provides one.
+		TODO: replace `Any` with a proper BigInt type when hxnodejs provides one.
 
 		@see https://nodejs.org/api/buffer.html#buffer_buf_writebiguint64le_value_offset
 	**/
-	function writeBigUInt64LE(value:Dynamic, ?offset:Int):Int;
+	function writeBigUInt64LE(value:Any, ?offset:Int):Int;
 
 	/**
 		Alias of `writeBigUInt64LE`.
 	**/
 	@:native("writeBigUint64LE")
-	function writeBigUint64LE(value:Dynamic, ?offset:Int):Int;
+	function writeBigUint64LE(value:Any, ?offset:Int):Int;
 
 	/**
 		Writes `value` to `buf` at the specified `offset` with specified endian format
