@@ -55,5 +55,5 @@ extern class TextEncoder {
 
 		@see https://nodejs.org/api/util.html#textencoderencoding
 	**/
-	var encoding(default, null):String;
+	final encoding:String;
 }
