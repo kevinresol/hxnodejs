@@ -48,11 +48,11 @@ enum abstract REPLServerEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T>
 		This occurs whenever the `.clear` command is received as input unless the REPL is using the default evaluator
 		and the `REPLServer` instance was created with the `useGlobal` option set to `true`.
 
-		// TODO(section-5): type context beyond DynamicAccess<Dynamic>
+		// TODO(section-5): type context beyond DynamicAccess<Any>
 
 		@see https://nodejs.org/docs/latest-v24.x/api/repl.html#event-reset
 	**/
-	var Reset:REPLServerEvent<(context:DynamicAccess<Dynamic>) -> Void> = "reset";
+	var Reset:REPLServerEvent<(context:DynamicAccess<Any>) -> Void> = "reset";
 }
 
 /**
@@ -72,9 +72,9 @@ extern class REPLServer extends Interface {
 	/**
 		The `vm` / REPL context object provided to the `eval` function.
 
-		// TODO(section-5): type context beyond DynamicAccess<Dynamic>
+		// TODO(section-5): type context beyond DynamicAccess<Any>
 	**/
-	var context(default, null):DynamicAccess<Dynamic>;
+	var context(default, null):DynamicAccess<Any>;
 
 	/**
 		The `Readable` stream from which REPL input will be read.
