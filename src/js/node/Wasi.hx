@@ -40,32 +40,34 @@ extern class Wasi {
 
 	/**
 		Attempt to begin execution of `instance` as a WASI command by invoking its `_start()` export.
-		// TODO(section-5): WebAssembly.Instance typing
+		// TODO: WebAssembly.Instance typing not available in Haxe std
 	**/
-	function start(instance:Dynamic):Float;
+	function start(instance:Any):Float;
 
 	/**
 		Attempt to initialize `instance` as a WASI reactor by invoking its `_initialize()` export.
+		// TODO: WebAssembly.Instance typing not available in Haxe std
 	**/
-	function initialize(instance:Dynamic):Void;
+	function initialize(instance:Any):Void;
 
 	/**
 		Set up WASI host bindings to `instance` without calling `initialize()` or `start()`.
 		Added in: v24.4.0
+		// TODO: WebAssembly.Instance / WebAssembly.Memory typing not available in Haxe std
 	**/
-	function finalizeBindings(instance:Dynamic, ?options:{?memory:Dynamic}):Void;
+	function finalizeBindings(instance:Any, ?options:{?memory:Any}):Void;
 
 	/**
 		Return an import object that can be passed to `WebAssembly.instantiate()`.
-		// TODO(section-5): WebAssembly.Imports typing
+		// TODO: WebAssembly.Imports typing not available in Haxe std
 	**/
-	function getImportObject():Dynamic;
+	function getImportObject():Any;
 
 	/**
 		An object that implements the WASI system call API.
-		// TODO(section-5): WASI import object field typing
+		// TODO: WASI import object field typing
 	**/
-	final wasiImport:DynamicAccess<Dynamic>;
+	final wasiImport:DynamicAccess<Any>;
 }
 
 enum abstract WasiVersion(String) from String to String {

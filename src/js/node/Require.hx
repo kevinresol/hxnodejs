@@ -40,7 +40,7 @@ extern class Require {
 		@see https://nodejs.org/api/modules.html#modules_module_id
 	**/
 	@:selfCall
-	static function require(id:String):Dynamic;
+	static function require(id:String):Any;
 
 	/**
 		Modules are cached in this object when they are required.
@@ -62,7 +62,7 @@ extern class Require {
 		and complexities that are best left untouched.
 	**/
 	@:deprecated("Use compiling to JavaScript ahead of time instead")
-	static final extensions:DynamicAccess<Dynamic>;
+	static final extensions:DynamicAccess<Any>;
 
 	/**
 		The `Module` object representing the entry script loaded when the Node.js process launched.

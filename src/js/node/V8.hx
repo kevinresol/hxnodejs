@@ -69,7 +69,8 @@ extern class V8 {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/v8.html#v8getcppheapstatisticsdetaillevel
 	**/
-	static function getCppHeapStatistics(?detailLevel:V8CppHeapStatisticsDetailLevel):Dynamic;
+	// TODO: typed CppHeap statistics once brief/detailed return shapes are modeled
+	static function getCppHeapStatistics(?detailLevel:V8CppHeapStatisticsDetailLevel):Any;
 
 	/**
 		Generates a snapshot of the current V8 heap and returns a Readable stream that may be used to
@@ -125,21 +126,21 @@ extern class V8 {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/v8.html#v8serializevalue
 	**/
-	static function serialize(value:Dynamic):Buffer;
+	static function serialize(value:Any):Buffer;
 
 	/**
 		Uses a `DefaultDeserializer` with default options to read a JS value from a buffer.
 
 		@see https://nodejs.org/docs/latest-v24.x/api/v8.html#v8deserializebuffer
 	**/
-	static function deserialize(buffer:Buffer):Dynamic;
+	static function deserialize(buffer:Buffer):Any;
 
 	/**
 		This API will find all objects corresponding to the constructor `ctor`.
 
 		@see https://nodejs.org/docs/latest-v24.x/api/v8.html#v8queryobjectsctor-options
 	**/
-	static function queryObjects(ctor:Function, ?options:V8QueryObjectsOptions):Dynamic;
+	static function queryObjects(ctor:Function, ?options:V8QueryObjectsOptions):Any;
 
 	/**
 		Tracks `Promise` lifecycle callbacks. Prefer `async_hooks` / `diagnostics_channel` for most apps.
@@ -243,24 +244,24 @@ typedef V8QueryObjectsOptions = {
 }
 
 typedef V8PromiseHooks = {
-	function onInit(init:(promise:Dynamic, parent:Dynamic) -> Void):() -> Void;
-	function onSettled(settled:(promise:Dynamic) -> Void):() -> Void;
-	function onBefore(before:(promise:Dynamic) -> Void):() -> Void;
-	function onAfter(after:(promise:Dynamic) -> Void):() -> Void;
+	function onInit(init:(promise:Any, parent:Any) -> Void):() -> Void;
+	function onSettled(settled:(promise:Any) -> Void):() -> Void;
+	function onBefore(before:(promise:Any) -> Void):() -> Void;
+	function onAfter(after:(promise:Any) -> Void):() -> Void;
 	function createHook(callbacks:V8PromiseHookCallbacks):() -> Void;
 }
 
 typedef V8PromiseHookCallbacks = {
-	@:optional var init:(promise:Dynamic, parent:Dynamic) -> Void;
-	@:optional var before:(promise:Dynamic) -> Void;
-	@:optional var after:(promise:Dynamic) -> Void;
-	@:optional var settled:(promise:Dynamic) -> Void;
+	@:optional var init:(promise:Any, parent:Any) -> Void;
+	@:optional var before:(promise:Any) -> Void;
+	@:optional var after:(promise:Any) -> Void;
+	@:optional var settled:(promise:Any) -> Void;
 }
 
 typedef V8StartupSnapshot = {
-	function addSerializeCallback(callback:(data:Dynamic) -> Void, ?data:Dynamic):Void;
-	function addDeserializeCallback(callback:(data:Dynamic) -> Void, ?data:Dynamic):Void;
-	function setDeserializeMainFunction(callback:(data:Dynamic) -> Void, ?data:Dynamic):Void;
+	function addSerializeCallback(callback:(data:Any) -> Void, ?data:Any):Void;
+	function addDeserializeCallback(callback:(data:Any) -> Void, ?data:Any):Void;
+	function setDeserializeMainFunction(callback:(data:Any) -> Void, ?data:Any):Void;
 	function isBuildingSnapshot():Bool;
 }
 
@@ -295,7 +296,8 @@ extern class V8GCProfiler {
 	/**
 		Stop collecting GC profile data and return the profile.
 	**/
-	function stop():Dynamic;
+	// TODO: typed GC profile result once V8 GCProfiler stop() shape is modeled
+	function stop():Any;
 
 	/**
 		Stop collecting GC data and discard the profile.
