@@ -40,12 +40,12 @@ extern class ServerHttp2Stream extends Http2Stream {
 	/**
 		`true` if headers were sent, `false` otherwise.
 	**/
-	var headersSent(default, null):Bool;
+	final headersSent:Bool;
 
 	/**
 		`true` if the remote peer accepts push streams.
 	**/
-	var pushAllowed(default, null):Bool;
+	final pushAllowed:Bool;
 
 	/**
 		Sends an additional informational `HEADERS` frame.
