@@ -26,7 +26,7 @@ package js.node.fs;
 	Objects returned from `Fs.stat` / `Fs.lstat` / `Fs.fstat` (and sync / promise forms).
 
 	When `{bigint: true}` is passed, numeric fields are JavaScript `bigint` values
-	(typed loosely as `Dynamic` here).
+	(typed loosely as `Any` here until hxnodejs exposes a BigInt type).
 
 	@see https://nodejs.org/docs/latest-v24.x/api/fs.html#class-fsstats
 **/
@@ -66,22 +66,25 @@ extern class Stats {
 		Nanoseconds since the POSIX Epoch when the file was last accessed (`bigint`).
 	**/
 	// TODO: tighten to a BigInt type when hxnodejs provides one.
-	var atimeNs:Dynamic;
+	var atimeNs:Any;
 
 	/**
 		Nanoseconds since the POSIX Epoch when the file was last modified (`bigint`).
 	**/
-	var mtimeNs:Dynamic;
+	// TODO: tighten to a BigInt type when hxnodejs provides one.
+	var mtimeNs:Any;
 
 	/**
 		Nanoseconds since the POSIX Epoch when the file status was last changed (`bigint`).
 	**/
-	var ctimeNs:Dynamic;
+	// TODO: tighten to a BigInt type when hxnodejs provides one.
+	var ctimeNs:Any;
 
 	/**
 		Nanoseconds since the POSIX Epoch when the file was created (`bigint`).
 	**/
-	var birthtimeNs:Dynamic;
+	// TODO: tighten to a BigInt type when hxnodejs provides one.
+	var birthtimeNs:Any;
 
 	/**
 		"Access Time" - Time when file data last accessed.

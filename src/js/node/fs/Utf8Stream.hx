@@ -185,7 +185,7 @@ typedef Utf8StreamOptions = {
 		Custom `fs` implementation for mocking / testing.
 	**/
 	// TODO: type as structural fs subset once practical
-	@:optional var fs:Dynamic;
+	@:optional var fs:Any;
 
 	/**
 		Perform `fsyncSync` after every write.

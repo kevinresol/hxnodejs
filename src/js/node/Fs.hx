@@ -821,7 +821,7 @@ extern class Fs {
 		Prefer calling static methods on `FsPromises` for Haxe typing of overloads.
 	**/
 	// TODO: value type mirroring FsPromises static surface (static-method extern cannot be reused as value type)
-	static final promises:Dynamic;
+	static final promises:Any;
 
 	/**
 		Asynchronous rename(2).
