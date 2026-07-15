@@ -100,8 +100,6 @@ extern class Module {
 
 	/**
 		The contextified object this module belongs to.
-
-		// TODO(vm): VmContext<Any> rejected by T:{} constraint; use {} for unknown context shape
 	**/
 	var context(default, null):VmContext<{}>;
 

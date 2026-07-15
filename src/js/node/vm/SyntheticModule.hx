@@ -35,8 +35,6 @@ typedef SyntheticModuleOptions = {
 
 	/**
 		The contextified object to compile and evaluate this module in.
-
-		// TODO(vm): VmContext<Any> rejected by T:{} constraint; use {} for unknown context shape
 	**/
 	@:optional var context:VmContext<{}>;
 }

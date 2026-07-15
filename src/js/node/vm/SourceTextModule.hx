@@ -46,8 +46,6 @@ typedef SourceTextModuleOptions = {
 	/**
 		The contextified object to compile and evaluate this module in.
 		If omitted, the module is evaluated in the current execution context.
-
-		// TODO(vm): VmContext<Any> rejected by T:{} constraint; use {} for unknown context shape
 	**/
 	@:optional var context:VmContext<{}>;
 

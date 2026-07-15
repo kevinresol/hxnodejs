@@ -176,8 +176,6 @@ extern class Script {
 
 	/**
 		Runs this script in `contextifiedObject` (from `Vm.createContext`).
-
-		// TODO(vm): VmContext<Any> rejected by T:{} constraint; use {} for unknown context shape
 	**/
 	function runInContext(contextifiedObject:VmContext<{}>, ?options:ScriptRunOptions):Any;
 

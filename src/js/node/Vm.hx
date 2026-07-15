@@ -192,8 +192,6 @@ extern class Vm {
 	/**
 		Compiles `code`, then runs it in `contextifiedObject` and returns the result.
 		`contextifiedObject` must previously have been contextified via `createContext`.
-
-		// TODO(vm): VmContext<Any> rejected by T:{} constraint; use {} for unknown context shape
 	**/
 	static function runInContext(code:String, contextifiedObject:VmContext<{}>,
 		?options:EitherType<String, VmRunOptions>):Any;
@@ -203,8 +201,6 @@ extern class Vm {
 
 		If `contextObject` is omitted, an empty contextified object is created.
 		Pass `Vm.constants.DONT_CONTEXTIFY` to create a context without contextifying quirks.
-
-		// TODO(vm): VmContext<Any> rejected by T:{} constraint; use {} for unknown context shape
 	**/
 	@:overload(function():VmContext<{}> {})
 	@:overload(function(contextObject:Any, ?options:VmCreateContextOptions):VmContext<{}> {})
@@ -262,6 +258,8 @@ typedef VmConstants = {
 
 /**
 	Type of context objects returned by `Vm.createContext`.
+
+	// FIXME(vm): cannot use VmContext<Any> — T:{} rejects Any; use VmContext<{}> for unknown contexts
 **/
 @:forward
 abstract VmContext<T:{}>(T) from T to T {}
