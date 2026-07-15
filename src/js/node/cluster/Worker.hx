@@ -40,7 +40,7 @@ enum abstract WorkerEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
 
 		Within a worker, `process.on('message')` may also be used.
 	**/
-	var Message:WorkerEvent<(message:Dynamic, handle:Null<ChildProcessSendHandle>) -> Void> = "message";
+	var Message:WorkerEvent<(message:Any, handle:Null<ChildProcessSendHandle>) -> Void> = "message";
 
 	/**
 		Similar to the cluster `'online'` event, but specific to this worker.
@@ -125,9 +125,9 @@ extern class Worker extends EventEmitter<Worker> {
 		In the primary this targets a specific worker (same as `ChildProcess.send`).
 		In a worker this sends to the primary (same as `process.send`).
 	**/
-	@:overload(function(message:Dynamic, sendHandle:ChildProcessSendHandle, options:ChildProcessSendOptions, ?callback:(error:Null<Error>) -> Void):Bool {})
-	@:overload(function(message:Dynamic, sendHandle:ChildProcessSendHandle, ?callback:(error:Null<Error>) -> Void):Bool {})
-	function send(message:Dynamic, ?callback:(error:Null<Error>) -> Void):Bool;
+	@:overload(function(message:Any, sendHandle:ChildProcessSendHandle, options:ChildProcessSendOptions, ?callback:(error:Null<Error>) -> Void):Bool {})
+	@:overload(function(message:Any, sendHandle:ChildProcessSendHandle, ?callback:(error:Null<Error>) -> Void):Bool {})
+	function send(message:Any, ?callback:(error:Null<Error>) -> Void):Bool;
 
 	/**
 		Kill the worker.

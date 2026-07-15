@@ -87,7 +87,7 @@ enum abstract ClusterEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/cluster.html#event-message
 	**/
-	var Message:ClusterEvent<(worker:Worker, message:Dynamic, handle:Null<ChildProcessSendHandle>) -> Void> = "message";
+	var Message:ClusterEvent<(worker:Worker, message:Any, handle:Null<ChildProcessSendHandle>) -> Void> = "message";
 }
 
 /**
