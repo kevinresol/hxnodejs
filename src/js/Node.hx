@@ -39,6 +39,7 @@ import js.node.web.Request;
 import js.node.web.Request.RequestInit;
 import js.node.web.Response;
 import js.node.web.Storage as WebStorage;
+import js.node.worker_threads.Transferable;
 
 /**
 	Node.js globals for the current process.
@@ -96,9 +97,10 @@ extern class Node {
 	/**
 		This variable may appear to be global but is not. See [exports](https://nodejs.org/api/modules.html#modules_exports).
 	**/
-	static var exports(get, never):Dynamic<Dynamic>;
+	// TODO: outer Dynamic<> retained — Any has no arbitrary field access (Haxe limitation); needed for `exports.foo`
+	static var exports(get, never):Dynamic<Any>;
 
-	private static inline function get_exports():Dynamic<Dynamic> {
+	private static inline function get_exports():Dynamic<Any> {
 		return code("exports");
 	}
 
@@ -120,16 +122,18 @@ extern class Node {
 		Stability: 3 - Legacy. Use `globalThis` instead.
 	**/
 	@:deprecated("Use globalThis instead")
-	static inline var global:Dynamic<Dynamic> = cast Node;
+	// TODO: outer Dynamic<> retained — Any has no arbitrary field access (Haxe limitation); needed for `global.foo`
+	static inline var global:Dynamic<Any> = cast Node;
 
 	/**
 		`globalThis` is the universal way to access the global object.
 
 		@see https://nodejs.org/api/globals.html#globalthis
 	**/
-	static var globalThis(get, never):Dynamic<Dynamic>;
+	// TODO: outer Dynamic<> retained — Any has no arbitrary field access (Haxe limitation); needed for `globalThis.foo`
+	static var globalThis(get, never):Dynamic<Any>;
 
-	private static inline function get_globalThis():Dynamic<Dynamic> {
+	private static inline function get_globalThis():Dynamic<Any> {
 		return code("globalThis");
 	}
 
@@ -202,7 +206,7 @@ extern class Node {
 	/**
 		This variable may appear to be global but is not. See [require()](https://nodejs.org/api/modules.html#modules_require_id).
 	**/
-	static inline function require(module:String):Dynamic {
+	static inline function require(module:String):Any {
 		return code("require({0})", module);
 	}
 
@@ -222,24 +226,24 @@ extern class Node {
 	/**
 		`setImmediate` is described in the [timers](https://nodejs.org/api/timers.html) section.
 	**/
-	static function setImmediate(callback:Function, args:Rest<Dynamic>):Immediate;
+	static function setImmediate(callback:Function, args:Rest<Any>):Immediate;
 
 	/**
 		`setInterval` is described in the [timers](https://nodejs.org/api/timers.html) section.
 	**/
-	static function setInterval(callback:Function, delay:Int, args:Rest<Dynamic>):Timeout;
+	static function setInterval(callback:Function, delay:Int, args:Rest<Any>):Timeout;
 
 	/**
 		`setTimeout` is described in the [timers](https://nodejs.org/api/timers.html) section.
 	**/
-	static function setTimeout(callback:Function, delay:Int, args:Rest<Dynamic>):Timeout;
+	static function setTimeout(callback:Function, delay:Int, args:Rest<Any>):Timeout;
 
 	/**
 		The WHATWG [`structuredClone`](https://developer.mozilla.org/en-US/docs/Web/API/structuredClone) method.
 
 		@see https://nodejs.org/api/globals.html#structuredclonevalue-options
 	**/
-	static function structuredClone(value:Dynamic, ?options:StructuredCloneOptions):Dynamic;
+	static function structuredClone(value:Any, ?options:StructuredCloneOptions):Any;
 }
 
 /**
@@ -249,7 +253,7 @@ typedef StructuredCloneOptions = {
 	/**
 		A list of transferable objects that will be moved rather than cloned.
 	**/
-	@:optional var transfer:Array<Dynamic>;
+	@:optional var transfer:Array<Transferable>;
 }
 
 @:deprecated("Use Timeout instead") typedef TimeoutObject = js.node.Timers.Timeout;
