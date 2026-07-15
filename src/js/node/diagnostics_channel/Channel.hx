@@ -40,13 +40,13 @@ typedef ChannelName = EitherType<String, Symbol>;
 		* `message` - The message data
 		* `name` - The name of the channel
 **/
-typedef ChannelListener = (message:Dynamic, name:ChannelName) -> Void;
+typedef ChannelListener = (message:Any, name:ChannelName) -> Void;
 
 /**
 	Transform function used by `Channel.bindStore` to convert published context
 	data into the value stored in an `AsyncLocalStorage` instance.
 **/
-typedef ChannelStoreTransform = (context:Dynamic) -> Dynamic;
+typedef ChannelStoreTransform = (context:Any) -> Any;
 
 /**
 	The class `Channel` represents an individual named channel within the data pipeline.
@@ -83,7 +83,7 @@ extern class Channel {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/diagnostics_channel.html#channelpublishmessage
 	**/
-	function publish(message:Dynamic):Void;
+	function publish(message:Any):Void;
 
 	/**
 		Register a message handler to subscribe to this channel.
@@ -124,7 +124,7 @@ extern class Channel {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/diagnostics_channel.html#channelbindstorestore-transform
 	**/
-	function bindStore(store:AsyncLocalStorage<Dynamic>, ?transform:ChannelStoreTransform):Void;
+	function bindStore(store:AsyncLocalStorage<Any>, ?transform:ChannelStoreTransform):Void;
 
 	/**
 		Remove a store previously bound to this channel with `channel.bindStore(store)`.
@@ -137,7 +137,7 @@ extern class Channel {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/diagnostics_channel.html#channelunbindstorestore
 	**/
-	function unbindStore(store:AsyncLocalStorage<Dynamic>):Bool;
+	function unbindStore(store:AsyncLocalStorage<Any>):Bool;
 
 	/**
 		Applies the given data to any AsyncLocalStorage instances bound to the channel
@@ -153,5 +153,5 @@ extern class Channel {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/diagnostics_channel.html#channelrunstorescontext-fn-thisarg-args
 	**/
-	function runStores(context:Dynamic, fn:Function, ?thisArg:Dynamic, args:Rest<Dynamic>):Dynamic;
+	function runStores(context:Any, fn:Function, ?thisArg:Any, args:Rest<Any>):Any;
 }
