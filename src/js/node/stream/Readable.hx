@@ -170,21 +170,21 @@ extern class Readable<TSelf:Readable<TSelf>> extends Stream<TSelf> implements IR
 
 		@see https://nodejs.org/api/stream.html#stream_readable_readableencoding
 	**/
-	var readableEncoding(default, null):Null<String>;
+	final readableEncoding:Null<String>;
 
 	/**
 		Becomes `true` when `'end'` event is emitted.
 
 		@see https://nodejs.org/api/stream.html#stream_readable_readableended
 	**/
-	var readableEnded(default, null):Bool;
+	final readableEnded:Bool;
 
 	/**
 		Returns the value of `highWaterMark` passed when constructing this `Readable`.
 
 		@see https://nodejs.org/api/stream.html#stream_readable_readablehighwatermark
 	**/
-	var readableHighWaterMark(default, null):Int;
+	final readableHighWaterMark:Int;
 
 	/**
 		This property contains the number of bytes (or objects) in the queue ready to be read.
@@ -192,28 +192,28 @@ extern class Readable<TSelf:Readable<TSelf>> extends Stream<TSelf> implements IR
 
 		@see https://nodejs.org/api/stream.html#stream_readable_readablelength
 	**/
-	var readableLength(default, null):Int;
+	final readableLength:Int;
 
 	/**
 		Getter for the property `objectMode` of a given `Readable` stream.
 
 		@see https://nodejs.org/api/stream.html#stream_readable_readableobjectmode
 	**/
-	var readableObjectMode(default, null):Bool;
+	final readableObjectMode:Bool;
 
 	/**
 		Returns whether the stream was destroyed or errored before emitting `'end'`.
 
 		@see https://nodejs.org/api/stream.html#readablereadableaborted
 	**/
-	var readableAborted(default, null):Bool;
+	final readableAborted:Bool;
 
 	/**
 		Returns whether `'data'` has been emitted.
 
 		@see https://nodejs.org/api/stream.html#readablereadabledidread
 	**/
-	var readableDidRead(default, null):Bool;
+	final readableDidRead:Bool;
 
 	/**
 		This property reflects the current state of a `Readable` stream as described
@@ -629,19 +629,19 @@ extern interface IReadable extends IStream {
 
 	var readable(default, null):Bool;
 
-	var readableEncoding(default, null):Null<String>;
+	final readableEncoding:Null<String>;
 
-	var readableEnded(default, null):Bool;
+	final readableEnded:Bool;
 
-	var readableHighWaterMark(default, null):Int;
+	final readableHighWaterMark:Int;
 
-	var readableLength(default, null):Int;
+	final readableLength:Int;
 
-	var readableObjectMode(default, null):Bool;
+	final readableObjectMode:Bool;
 
-	var readableAborted(default, null):Bool;
+	final readableAborted:Bool;
 
-	var readableDidRead(default, null):Bool;
+	final readableDidRead:Bool;
 
 	var readableFlowing(default, null):Null<Bool>;
 

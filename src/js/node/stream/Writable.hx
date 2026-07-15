@@ -166,21 +166,21 @@ extern class Writable<TSelf:Writable<TSelf>> extends Stream<TSelf> implements IW
 
 		@see https://nodejs.org/api/stream.html#stream_writable_writableended
 	**/
-	var writableEnded(default, null):Bool;
+	final writableEnded:Bool;
 
 	/**
 		Is set to `true` immediately before the 'finish' event is emitted.
 
 		@see https://nodejs.org/api/stream.html#stream_writable_writablefinished
 	**/
-	var writableFinished(default, null):Bool;
+	final writableFinished:Bool;
 
 	/**
 		Return the value of `highWaterMark` passed when constructing this `Writable`.
 
 		@see https://nodejs.org/api/stream.html#stream_writable_writablehighwatermark
 	**/
-	var writableHighWaterMark(default, null):Int;
+	final writableHighWaterMark:Int;
 
 	/**
 		This property contains the number of bytes (or objects) in the queue ready to be written.
@@ -188,35 +188,35 @@ extern class Writable<TSelf:Writable<TSelf>> extends Stream<TSelf> implements IW
 
 		@see https://nodejs.org/api/stream.html#stream_writable_writablelength
 	**/
-	var writableLength(default, null):Int;
+	final writableLength:Int;
 
 	/**
 		Getter for the property `objectMode` of a given `Writable` stream.
 
 		@see https://nodejs.org/api/stream.html#stream_writable_writableobjectmode
 	**/
-	var writableObjectMode(default, null):Bool;
+	final writableObjectMode:Bool;
 
 	/**
 		Returns whether the stream was destroyed or errored before emitting `'finish'`.
 
 		@see https://nodejs.org/api/stream.html#writablewritableaborted
 	**/
-	var writableAborted(default, null):Bool;
+	final writableAborted:Bool;
 
 	/**
 		Number of times `writable.uncork()` needs to be called to fully uncork the stream.
 
 		@see https://nodejs.org/api/stream.html#writablewritablecorked
 	**/
-	var writableCorked(default, null):Int;
+	final writableCorked:Int;
 
 	/**
 		Is `true` if the stream's buffer has been full and stream will emit `'drain'`.
 
 		@see https://nodejs.org/api/stream.html#writablewritableneeddrain
 	**/
-	var writableNeedDrain(default, null):Bool;
+	final writableNeedDrain:Bool;
 
 	/**
 		The `writable.write()` method writes some data to the stream, and calls the supplied `callback` once the data has been fully handled.
@@ -406,21 +406,21 @@ extern interface IWritable extends IStream {
 
 	var writable(default, null):Bool;
 
-	var writableEnded(default, null):Bool;
+	final writableEnded:Bool;
 
-	var writableFinished(default, null):Bool;
+	final writableFinished:Bool;
 
-	var writableHighWaterMark(default, null):Int;
+	final writableHighWaterMark:Int;
 
-	var writableLength(default, null):Int;
+	final writableLength:Int;
 
-	var writableObjectMode(default, null):Bool;
+	final writableObjectMode:Bool;
 
-	var writableAborted(default, null):Bool;
+	final writableAborted:Bool;
 
-	var writableCorked(default, null):Int;
+	final writableCorked:Int;
 
-	var writableNeedDrain(default, null):Bool;
+	final writableNeedDrain:Bool;
 
 	function write(chunk:Dynamic, ?encoding:String, ?callback:EitherType<Void->Void, Null<Error>->Void>):Bool;
 
