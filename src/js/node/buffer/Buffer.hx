@@ -173,7 +173,7 @@ extern class Buffer extends Uint8Array {
 		@see https://nodejs.org/api/buffer.html#bufparent
 	**/
 	@:deprecated("Use buffer instead")
-	var parent(default, null):ArrayBuffer;
+	final parent:ArrayBuffer;
 
 	/**
 		Compares `buf` with `target` and returns a number indicating whether `buf` comes before, after,
@@ -990,15 +990,15 @@ private class Helper {
 @:jsRequire("buffer")
 private extern class BufferModule {
 	static var INSPECT_MAX_BYTES:Int;
-	static var kMaxLength(default, never):Int;
-	static var kStringMaxLength(default, never):Int;
+	static final kMaxLength:Int;
+	static final kStringMaxLength:Int;
 	static function transcode(source:Uint8Array, fromEnc:String, toEnc:String):Buffer;
 	static function isUtf8(input:EitherType<ArrayBufferView, ArrayBuffer>):Bool;
 	static function isAscii(input:EitherType<ArrayBufferView, ArrayBuffer>):Bool;
 	static function atob(data:String):String;
 	static function btoa(data:String):String;
 	static function resolveObjectURL(id:String):Null<js.node.web.Blob>;
-	static var constants(default, never):BufferConstants;
+	static final constants:BufferConstants;
 }
 
 /**
