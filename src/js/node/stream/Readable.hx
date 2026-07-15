@@ -438,7 +438,7 @@ extern class Readable<TSelf:Readable<TSelf>> extends Stream<TSelf> implements IR
 
 		@see https://nodejs.org/api/tty.html#tty_readstream_istty
 	**/
-	final isTTY:Bool;
+	var isTTY(default, null):Bool;
 
 	// --------- static API  --------------------------------------------------
 

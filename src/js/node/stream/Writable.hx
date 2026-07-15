@@ -281,7 +281,7 @@ extern class Writable<TSelf:Writable<TSelf>> extends Stream<TSelf> implements IW
 
 		@see https://nodejs.org/api/tty.html#tty_writestream_istty
 	**/
-	final isTTY:Bool;
+	var isTTY(default, null):Bool;
 
 	/**
 		Creates a Node.js `Writable` from a web `WritableStream`.
@@ -424,7 +424,7 @@ extern interface IWritable extends IStream {
 
 	function write(chunk:Dynamic, ?encoding:String, ?callback:EitherType<Void->Void, Null<Error>->Void>):Bool;
 
-	final isTTY:Bool;
+	var isTTY(default, null):Bool;
 }
 
 typedef Chunk = {
