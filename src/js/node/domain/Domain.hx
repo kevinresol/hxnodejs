@@ -91,7 +91,7 @@ extern class Domain extends EventEmitter<Domain> {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/domain.html#domainrunfn-args
 	**/
-	function run(fn:Function, args:Rest<Dynamic>):Dynamic;
+	function run(fn:Function, args:Rest<Any>):Any;
 
 	/**
 		An array of event emitters that have been explicitly added to the domain.
