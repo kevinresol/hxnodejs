@@ -1,5 +1,5 @@
 /*
- * Copyright (C)2014-2020 Haxe Foundation
+ * Copyright (C)2014-2026 Haxe Foundation
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -33,17 +33,36 @@ import js.node.web.AbortSignal;
 
 /**
 	Base class for all streams.
+	Also the `stream` module façade exporting stream helpers and constructors.
+
+	@see https://nodejs.org/api/stream.html
 **/
 @:jsRequire("stream") // the module itself is also a class
 extern class Stream<TSelf:Stream<TSelf>> extends EventEmitter<TSelf> implements IStream {
 	private function new();
 
 	/**
+		Is `true` after `'close'` has been emitted.
+
+		@see https://nodejs.org/api/stream.html#readableclosed
+		@see https://nodejs.org/api/stream.html#writableclosed
+	**/
+	var closed(default, null):Bool;
+
+	/**
+		Returns the error if the stream has been destroyed with an error.
+
+		@see https://nodejs.org/api/stream.html#readableerrored
+		@see https://nodejs.org/api/stream.html#writableerrored
+	**/
+	var errored(default, null):Null<Error>;
+
+	/**
 		Promise-based stream helpers (`stream/promises`).
 
 		@see https://nodejs.org/api/stream.html#streams-promises-api
 	**/
-	static var promises(default, never):StreamPromises;
+	static final promises:StreamPromises;
 
 	/**
 		A module method to pipe between streams forwarding errors and properly cleaning up
@@ -103,6 +122,13 @@ extern class Stream<TSelf:Stream<TSelf>> extends EventEmitter<TSelf> implements 
 		@see https://nodejs.org/api/stream.html#streamaddabortsignalsignal-stream
 	**/
 	static function addAbortSignal(signal:AbortSignal, stream:IStream):IStream;
+
+	/**
+		Destroys the stream, optionally with an error.
+
+		Exported by the `stream` module (undocumented helper used by pipeline cleanup).
+	**/
+	static function destroy(stream:IStream, ?error:Error):Void;
 
 	/**
 		Returns the default highWaterMark used by streams.
@@ -228,4 +254,14 @@ typedef StreamComposeOptions = {
 	See `Stream` for actual class.
 **/
 @:remove
-extern interface IStream extends IEventEmitter {}
+extern interface IStream extends IEventEmitter {
+	/**
+		Is `true` after `'close'` has been emitted.
+	**/
+	var closed(default, null):Bool;
+
+	/**
+		Returns the error if the stream has been destroyed with an error.
+	**/
+	var errored(default, null):Null<Error>;
+}

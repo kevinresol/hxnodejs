@@ -1,5 +1,5 @@
 /*
- * Copyright (C)2014-2020 Haxe Foundation
+ * Copyright (C)2014-2026 Haxe Foundation
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -40,7 +40,7 @@ extern class Transform<TSelf:Transform<TSelf>> extends Duplex<TSelf> implements 
 
 		@see https://nodejs.org/api/stream.html#stream_transform_flush_callback
 	**/
-	private function _flush(callback:Null<Error>->Void):Void;
+	private function _flush(callback:(error:Null<Error>, ?data:Dynamic) -> Void):Void;
 
 	/**
 		This function **MUST NOT** be called by application code directly.
@@ -65,7 +65,7 @@ typedef TransformNewOptions = {
 	/**
 		Implementation for the `stream._flush()` method.
 	**/
-	@:optional var flush:Null<Error>->Void;
+	@:optional var flush:(callback:(error:Null<Error>, ?data:Dynamic) -> Void) -> Void;
 }
 
 @:remove
