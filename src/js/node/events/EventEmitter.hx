@@ -374,4 +374,4 @@ extern interface IEventEmitter {
 	Abstract type for events. Its type parameter is a signature
 	of a listener for a concrete event.
 **/
-abstract Event<T:Function>(Dynamic) from String to String from Symbol to Symbol {}
+abstract Event<T:Function>(EitherType<String, Symbol>) from String to String from Symbol to Symbol {}
