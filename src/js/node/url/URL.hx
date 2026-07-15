@@ -111,7 +111,7 @@ extern class URL {
 
 		@see https://nodejs.org/api/url.html#urlorigin
 	**/
-	var origin(default, null):String;
+	final origin:String;
 
 	/**
 		Gets and sets the password portion of the URL.
@@ -157,7 +157,7 @@ extern class URL {
 
 		@see https://nodejs.org/api/url.html#urlsearchparams
 	**/
-	var searchParams(default, null):URLSearchParams;
+	final searchParams:URLSearchParams;
 
 	/**
 		Gets and sets the username portion of the URL.
