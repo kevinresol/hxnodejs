@@ -52,21 +52,21 @@ extern class TextDecoder {
 
 		@see https://nodejs.org/api/util.html#textdecoderencoding
 	**/
-	var encoding(default, null):String;
+	final encoding:String;
 
 	/**
 		The value will be `true` if decoding errors result in a `TypeError` being thrown.
 
 		@see https://nodejs.org/api/util.html#textdecoderfatal
 	**/
-	var fatal(default, null):Bool;
+	final fatal:Bool;
 
 	/**
 		The value will be `true` if the decoding result will include the byte order mark.
 
 		@see https://nodejs.org/api/util.html#textdecoderignorebom
 	**/
-	var ignoreBOM(default, null):Bool;
+	final ignoreBOM:Bool;
 }
 
 /**
