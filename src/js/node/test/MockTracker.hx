@@ -203,7 +203,7 @@ extern class MockFunctionContext {
 	/**
 		Copy of the internal call-tracking array.
 	**/
-	var calls(default, null):Array<MockFunctionCall>;
+	final calls:Array<MockFunctionCall>;
 
 	/**
 		Number of times this mock has been invoked.
@@ -287,7 +287,7 @@ extern class MockPropertyContext {
 	/**
 		Copy of the internal access-tracking array.
 	**/
-	var accesses(default, null):Array<MockPropertyAccess>;
+	final accesses:Array<MockPropertyAccess>;
 
 	/**
 		Number of times the property was accessed (get or set).
