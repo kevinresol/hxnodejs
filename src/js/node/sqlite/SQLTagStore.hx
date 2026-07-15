@@ -41,17 +41,17 @@ extern class SQLTagStore {
 	/**
 		Number of prepared statements currently in the cache.
 	**/
-	var size(default, null):Int;
+	final size:Int;
 
 	/**
 		Maximum number of prepared statements the cache can hold.
 	**/
-	var capacity(default, null):Int;
+	final capacity:Int;
 
 	/**
 		The `DatabaseSync` associated with this store.
 	**/
-	var db(default, null):DatabaseSync;
+	final db:DatabaseSync;
 
 	/**
 		Executes the query and returns all rows (template-tag style).
