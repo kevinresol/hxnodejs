@@ -100,9 +100,9 @@ extern class Http2ServerRequest extends Readable<Http2ServerRequest> {
 	final httpVersionMinor:Int;
 
 	/**
-		The request method as a string. Read-only.
+		The request method as a string.
 	**/
-	final method:String;
+	var method:String;
 
 	/**
 		The raw request/response headers list exactly as they were received.
