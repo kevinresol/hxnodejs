@@ -38,7 +38,7 @@ extern class PerformanceMeasure extends PerformanceEntry {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/perf_hooks.html#performancemeasuredetail
 	**/
-	final detail:Dynamic;
+	final detail:Any;
 }
 
 /**
@@ -48,7 +48,7 @@ typedef PerformanceMeasureOptions = {
 	/**
 		Additional optional detail to include with the measure.
 	**/
-	@:optional var detail:Dynamic;
+	@:optional var detail:Any;
 
 	/**
 		Duration between start and end times.

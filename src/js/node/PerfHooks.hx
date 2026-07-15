@@ -125,7 +125,7 @@ typedef CreateHistogramOptions = {
 
 		// TODO: allow BigInt when hxnodejs gains a BigInt type (Node accepts number | bigint).
 	**/
-	@:optional var lowest:EitherType<Float, Dynamic>;
+	@:optional var lowest:EitherType<Float, Any>;
 
 	/**
 		The highest recordable value. Must be an integer value that is equal to or greater than
@@ -133,7 +133,7 @@ typedef CreateHistogramOptions = {
 
 		// TODO: allow BigInt when hxnodejs gains a BigInt type (Node accepts number | bigint).
 	**/
-	@:optional var highest:EitherType<Float, Dynamic>;
+	@:optional var highest:EitherType<Float, Any>;
 
 	/**
 		The number of accuracy digits. Must be a number between `1` and `5`.

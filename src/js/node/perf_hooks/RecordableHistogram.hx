@@ -43,7 +43,7 @@ extern class RecordableHistogram extends Histogram {
 		// TODO: allow BigInt when hxnodejs gains a BigInt type (Node accepts number | bigint).
 		@see https://nodejs.org/docs/latest-v24.x/api/perf_hooks.html#histogramrecordval
 	**/
-	function record(val:EitherType<Float, Dynamic>):Void;
+	function record(val:EitherType<Float, Any>):Void;
 
 	/**
 		Calculates the amount of time (in nanoseconds) that has passed since the previous call

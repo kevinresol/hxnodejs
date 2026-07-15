@@ -36,7 +36,7 @@ extern class PerformanceMark extends PerformanceEntry {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/perf_hooks.html#performancemarkdetail
 	**/
-	final detail:Dynamic;
+	final detail:Any;
 }
 
 /**
@@ -46,7 +46,7 @@ typedef PerformanceMarkOptions = {
 	/**
 		Additional optional detail to include with the mark.
 	**/
-	@:optional var detail:Dynamic;
+	@:optional var detail:Any;
 
 	/**
 		An optional timestamp to be used as the mark time.

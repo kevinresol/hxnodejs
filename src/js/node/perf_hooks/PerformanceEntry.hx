@@ -60,6 +60,8 @@ extern class PerformanceEntry {
 
 	/**
 		Returns a JSON representation of the `PerformanceEntry` object.
+
+		// TODO: no dedicated typedef for the serialized entry shape yet.
 	**/
-	function toJSON():Dynamic;
+	function toJSON():Any;
 }
