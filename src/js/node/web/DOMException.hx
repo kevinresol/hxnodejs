@@ -63,7 +63,7 @@ extern class DOMException extends Error {
 
 		`name` / `message` are inherited from `js.lib.Error`.
 	**/
-	var code(default, null):Int;
+	final code:Int;
 
 	function new(?message:String, ?name:String):Void;
 }

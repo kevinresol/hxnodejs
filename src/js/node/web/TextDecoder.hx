@@ -35,9 +35,9 @@ import js.lib.ArrayBufferView;
 **/
 @:native("TextDecoder")
 extern class TextDecoder {
-	var encoding(default, null):String;
-	var fatal(default, null):Bool;
-	var ignoreBOM(default, null):Bool;
+	final encoding:String;
+	final fatal:Bool;
+	final ignoreBOM:Bool;
 
 	function new(?label:String, ?options:TextDecoderOptions):Void;
 

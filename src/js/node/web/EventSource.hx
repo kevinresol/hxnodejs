@@ -37,9 +37,9 @@ extern class EventSource extends EventTarget {
 	static inline var OPEN:Int = 1;
 	static inline var CLOSED:Int = 2;
 
-	var readyState(default, null):Int;
-	var url(default, null):String;
-	var withCredentials(default, null):Bool;
+	final readyState:Int;
+	final url:String;
+	final withCredentials:Bool;
 
 	var onopen:Null<Event->Void>;
 	var onmessage:Null<MessageEvent->Void>;

@@ -34,9 +34,9 @@ import js.lib.Promise;
 extern class WritableStreamDefaultWriter {
 	function new(stream:WritableStream):Void;
 
-	var closed(default, null):Promise<Void>;
-	var ready(default, null):Promise<Void>;
-	var desiredSize(default, null):Null<Float>;
+	final closed:Promise<Void>;
+	final ready:Promise<Void>;
+	final desiredSize:Null<Float>;
 
 	function abort(?reason:Any):Promise<Void>;
 	function close():Promise<Void>;

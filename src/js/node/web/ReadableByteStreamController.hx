@@ -31,8 +31,8 @@ import js.lib.ArrayBufferView;
 **/
 @:native("ReadableByteStreamController")
 extern class ReadableByteStreamController {
-	var byobRequest(default, null):Null<ReadableStreamBYOBRequest>;
-	var desiredSize(default, null):Null<Float>;
+	final byobRequest:Null<ReadableStreamBYOBRequest>;
+	final desiredSize:Null<Float>;
 
 	function close():Void;
 	function enqueue(chunk:ArrayBufferView):Void;

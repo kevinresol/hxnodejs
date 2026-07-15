@@ -29,7 +29,7 @@ package js.node.web;
 **/
 @:native("TransformStreamDefaultController")
 extern class TransformStreamDefaultController {
-	var desiredSize(default, null):Null<Float>;
+	final desiredSize:Null<Float>;
 
 	function enqueue(?chunk:Any):Void;
 	function error(?reason:Any):Void;

@@ -31,7 +31,7 @@ import js.lib.ArrayBufferView;
 **/
 @:native("ReadableStreamBYOBRequest")
 extern class ReadableStreamBYOBRequest {
-	var view(default, null):Null<ArrayBufferView>;
+	final view:Null<ArrayBufferView>;
 
 	function respond(bytesWritten:Int):Void;
 	function respondWithNewView(view:ArrayBufferView):Void;

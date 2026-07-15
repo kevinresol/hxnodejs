@@ -35,7 +35,7 @@ import js.lib.Promise;
 extern class ReadableStreamBYOBReader {
 	function new(stream:ReadableStream):Void;
 
-	var closed(default, null):Promise<Void>;
+	final closed:Promise<Void>;
 
 	/**
 		Reads into the provided view.

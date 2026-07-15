@@ -37,12 +37,12 @@ extern class File extends Blob {
 	/**
 		The name of the file.
 	**/
-	var name(default, null):String;
+	final name:String;
 
 	/**
 		The last modified date of the file (milliseconds since UNIX epoch).
 	**/
-	var lastModified(default, null):Float;
+	final lastModified:Float;
 
 	function new(sources:Array<BlobPart>, fileName:String, ?options:FilePropertyBag):Void;
 }

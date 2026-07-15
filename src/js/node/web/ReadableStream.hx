@@ -40,7 +40,7 @@ extern class ReadableStream {
 	/**
 		Whether a reader is currently locked onto this stream.
 	**/
-	var locked(default, null):Bool;
+	final locked:Bool;
 
 	function new(?underlyingSource:ReadableStreamUnderlyingSource, ?strategy:QueuingStrategy):Void;
 

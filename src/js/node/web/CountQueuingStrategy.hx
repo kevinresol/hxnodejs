@@ -32,7 +32,7 @@ package js.node.web;
 extern class CountQueuingStrategy {
 	function new(init:{var highWaterMark:Float;}):Void;
 
-	var highWaterMark(default, null):Float;
+	final highWaterMark:Float;
 
 	/**
 		Always returns `1`.

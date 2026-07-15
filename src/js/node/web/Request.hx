@@ -38,37 +38,37 @@ import js.node.url.URLSearchParams;
 **/
 @:native("Request")
 extern class Request {
-	var method(default, null):String;
-	var url(default, null):String;
-	var headers(default, null):Headers;
-	var destination(default, null):String;
-	var referrer(default, null):String;
-	var referrerPolicy(default, null):String;
-	var mode(default, null):String;
-	var credentials(default, null):String;
-	var cache(default, null):String;
-	var redirect(default, null):String;
-	var integrity(default, null):String;
-	var keepalive(default, null):Bool;
-	var signal(default, null):AbortSignal;
-	var duplex(default, null):String;
+	final method:String;
+	final url:String;
+	final headers:Headers;
+	final destination:String;
+	final referrer:String;
+	final referrerPolicy:String;
+	final mode:String;
+	final credentials:String;
+	final cache:String;
+	final redirect:String;
+	final integrity:String;
+	final keepalive:Bool;
+	final signal:AbortSignal;
+	final duplex:String;
 
 	/**
 		Always `false` in Node.js (undici); provided for browser API completeness.
 	**/
-	var isHistoryNavigation(default, null):Bool;
+	final isHistoryNavigation:Bool;
 
 	/**
 		Always `false` in Node.js (undici); provided for browser API completeness.
 	**/
-	var isReloadNavigation(default, null):Bool;
+	final isReloadNavigation:Bool;
 
 	/**
 		A `ReadableStream` of the body contents, or `null`.
 	**/
-	var body(default, null):Null<ReadableStream>;
+	final body:Null<ReadableStream>;
 
-	var bodyUsed(default, null):Bool;
+	final bodyUsed:Bool;
 
 	@:overload(function(input:Request, ?init:RequestInit):Void {})
 	@:overload(function(input:URL, ?init:RequestInit):Void {})

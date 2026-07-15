@@ -30,8 +30,8 @@ package js.node.web;
 **/
 @:native("TransformStream")
 extern class TransformStream {
-	var readable(default, null):ReadableStream;
-	var writable(default, null):WritableStream;
+	final readable:ReadableStream;
+	final writable:WritableStream;
 
 	function new(?transformer:Transformer, ?writableStrategy:QueuingStrategy, ?readableStrategy:QueuingStrategy):Void;
 }
