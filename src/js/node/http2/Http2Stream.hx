@@ -79,12 +79,12 @@ extern class Http2Stream extends Duplex<Http2Stream> {
 	/**
 		`true` if the `Http2Stream` instance was aborted abnormally.
 	**/
-	var aborted(default, null):Bool;
+	final aborted:Bool;
 
 	/**
 		Number of characters currently buffered to be written.
 	**/
-	var bufferSize(default, null):Int;
+	final bufferSize:Int;
 
 	/**
 		`true` if the `Http2Stream` instance has been closed.
@@ -97,47 +97,47 @@ extern class Http2Stream extends Duplex<Http2Stream> {
 	/**
 		`true` if the `END_STREAM` flag was set in the received headers.
 	**/
-	var endAfterHeaders(default, null):Bool;
+	final endAfterHeaders:Bool;
 
 	/**
 		The numeric stream identifier, or `undefined` if not yet assigned.
 	**/
-	var id(default, null):Null<Int>;
+	final id:Null<Int>;
 
 	/**
 		`true` if the stream has not yet been assigned a numeric stream identifier.
 	**/
-	var pending(default, null):Bool;
+	final pending:Bool;
 
 	/**
 		The `RST_STREAM` error code reported when the stream was destroyed, if any.
 	**/
-	var rstCode(default, null):Null<Int>;
+	final rstCode:Null<Int>;
 
 	/**
 		Outbound headers sent for this stream.
 	**/
-	var sentHeaders(default, null):Http2Headers;
+	final sentHeaders:Http2Headers;
 
 	/**
 		Outbound informational headers sent for this stream.
 	**/
-	var sentInfoHeaders(default, null):Null<Array<Http2Headers>>;
+	final sentInfoHeaders:Null<Array<Http2Headers>>;
 
 	/**
 		Outbound trailers sent for this stream.
 	**/
-	var sentTrailers(default, null):Null<Http2Headers>;
+	final sentTrailers:Null<Http2Headers>;
 
 	/**
 		The `Http2Session` that owns this stream.
 	**/
-	var session(default, null):Null<Http2Session>;
+	final session:Null<Http2Session>;
 
 	/**
 		Miscellaneous information about the current state of the stream.
 	**/
-	var state(default, null):Http2StreamState;
+	final state:Http2StreamState;
 
 	/**
 		Closes the stream by sending an `RST_STREAM` frame.

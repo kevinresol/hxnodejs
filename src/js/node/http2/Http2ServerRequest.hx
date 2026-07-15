@@ -56,23 +56,23 @@ extern class Http2ServerRequest extends Readable<Http2ServerRequest> {
 	/**
 		The `request.aborted` property will be `true` if the request has been aborted.
 	**/
-	var aborted(default, null):Bool;
+	final aborted:Bool;
 
 	/**
 		The request authority pseudo header field.
 	**/
-	var authority(default, null):String;
+	final authority:String;
 
 	/**
 		The `request.complete` property will be `true` if the request has been completed, aborted, or destroyed.
 	**/
-	var complete(default, null):Bool;
+	final complete:Bool;
 
 	/**
 		See `request.socket`.
 	**/
 	@:deprecated("Use request.socket instead")
-	var connection(default, null):Socket;
+	final connection:Socket;
 
 	/**
 		Calls `destroy()` on the `Http2Stream` that received the `Http2ServerRequest`.
@@ -82,42 +82,42 @@ extern class Http2ServerRequest extends Readable<Http2ServerRequest> {
 	/**
 		The request/response headers object.
 	**/
-	var headers(default, null):Http2Headers;
+	final headers:Http2Headers;
 
 	/**
 		In case of server request, the HTTP version sent by the client. Returns `'2.0'`.
 	**/
-	var httpVersion(default, null):String;
+	final httpVersion:String;
 
 	/**
 		HTTP Version first integer.
 	**/
-	var httpVersionMajor(default, null):Int;
+	final httpVersionMajor:Int;
 
 	/**
 		HTTP Version second integer.
 	**/
-	var httpVersionMinor(default, null):Int;
+	final httpVersionMinor:Int;
 
 	/**
-		The request method as a string. Read-only.
+		The request method as a string.
 	**/
-	var method(default, null):String;
+	var method:String;
 
 	/**
 		The raw request/response headers list exactly as they were received.
 	**/
-	var rawHeaders(default, null):Array<String>;
+	final rawHeaders:Array<String>;
 
 	/**
 		The raw request/response trailer keys and values exactly as they were received.
 	**/
-	var rawTrailers(default, null):Array<String>;
+	final rawTrailers:Array<String>;
 
 	/**
 		The request scheme pseudo header field.
 	**/
-	var scheme(default, null):String;
+	final scheme:String;
 
 	/**
 		Sets the `Http2Stream`'s timeout value to `msecs`.
@@ -128,17 +128,17 @@ extern class Http2ServerRequest extends Readable<Http2ServerRequest> {
 		Returns a `Proxy` object that acts as a `net.Socket` (or `tls.TLSSocket`)
 		but applies getters, setters, and methods based on HTTP/2 logic.
 	**/
-	var socket(default, null):Socket;
+	final socket:Socket;
 
 	/**
 		The `Http2Stream` object backing the request.
 	**/
-	var stream(default, null):ServerHttp2Stream;
+	final stream:ServerHttp2Stream;
 
 	/**
 		The request/response trailers object. Only populated at the `'end'` event.
 	**/
-	var trailers(default, null):DynamicAccess<String>;
+	final trailers:DynamicAccess<String>;
 
 	/**
 		Request URL string. Contains only the URL present in the actual HTTP request.

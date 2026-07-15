@@ -100,62 +100,62 @@ extern class Http2Session extends EventEmitter<Http2Session> {
 		Value will be `undefined` if the session is not yet connected to a socket,
 		`'h2c'` if not connected to a `TLSSocket`, or the connected socket's `alpnProtocol`.
 	**/
-	var alpnProtocol(default, null):Null<String>;
+	final alpnProtocol:Null<String>;
 
 	/**
 		`true` if this `Http2Session` instance has been closed.
 	**/
-	var closed(default, null):Bool;
+	final closed:Bool;
 
 	/**
 		`true` if this `Http2Session` instance is still connecting.
 	**/
-	var connecting(default, null):Bool;
+	final connecting:Bool;
 
 	/**
 		`true` if this `Http2Session` instance has been destroyed.
 	**/
-	var destroyed(default, null):Bool;
+	final destroyed:Bool;
 
 	/**
 		`true` if connected with a `TLSSocket`, `false` for other sockets, `undefined` if not yet connected.
 	**/
-	var encrypted(default, null):Null<Bool>;
+	final encrypted:Null<Bool>;
 
 	/**
 		A prototype-less object describing the current local settings of this session.
 	**/
-	var localSettings(default, null):Http2Settings;
+	final localSettings:Http2Settings;
 
 	/**
 		Array of origins for which the session may be considered authoritative (TLS only).
 	**/
-	var originSet(default, null):Null<Array<String>>;
+	final originSet:Null<Array<String>>;
 
 	/**
 		`true` while waiting for acknowledgment of a sent `SETTINGS` frame.
 	**/
-	var pendingSettingsAck(default, null):Bool;
+	final pendingSettingsAck:Bool;
 
 	/**
 		A prototype-less object describing the current remote settings of this session.
 	**/
-	var remoteSettings(default, null):Http2Settings;
+	final remoteSettings:Http2Settings;
 
 	/**
 		A `Proxy` object that acts as a `net.Socket` / `tls.TLSSocket` but limits available methods.
 	**/
-	var socket(default, null):Socket;
+	final socket:Socket;
 
 	/**
 		Miscellaneous information about the current state of the session.
 	**/
-	var state(default, null):Http2SessionState;
+	final state:Http2SessionState;
 
 	/**
 		Equal to `NGHTTP2_SESSION_SERVER` or `NGHTTP2_SESSION_CLIENT`.
 	**/
-	var type(default, null):Int;
+	final type:Int;
 
 	/**
 		Gracefully closes the `Http2Session`, allowing existing streams to complete.

@@ -74,7 +74,7 @@ extern class Http2ServerResponse extends Writable<Http2ServerResponse> {
 		See `response.socket`.
 	**/
 	@:deprecated("Use response.socket instead")
-	var connection(default, null):Socket;
+	final connection:Socket;
 
 	/**
 		Call `http2stream.pushStream()` with the given headers, and wrap the given `Http2Stream`
@@ -86,7 +86,7 @@ extern class Http2ServerResponse extends Writable<Http2ServerResponse> {
 		Boolean value that indicates whether the response has completed.
 	**/
 	@:deprecated("Use response.writableEnded instead")
-	var finished(default, null):Bool;
+	final finished:Bool;
 
 	/**
 		Reads out a header that has already been queued but not sent to the client.
@@ -111,7 +111,7 @@ extern class Http2ServerResponse extends Writable<Http2ServerResponse> {
 	/**
 		True if headers were sent, false otherwise (read-only).
 	**/
-	var headersSent(default, null):Bool;
+	final headersSent:Bool;
 
 	/**
 		Removes a header that has been queued for implicit sending.
@@ -150,7 +150,7 @@ extern class Http2ServerResponse extends Writable<Http2ServerResponse> {
 		Returns a `Proxy` object that acts as a `net.Socket` (or `tls.TLSSocket`)
 		but applies getters, setters, and methods based on HTTP/2 logic.
 	**/
-	var socket(default, null):Socket;
+	final socket:Socket;
 
 	/**
 		When using implicit headers, this property controls the status code that will be sent to the client.
@@ -165,7 +165,7 @@ extern class Http2ServerResponse extends Writable<Http2ServerResponse> {
 	/**
 		The `Http2Stream` object backing the response.
 	**/
-	var stream(default, null):ServerHttp2Stream;
+	final stream:ServerHttp2Stream;
 
 	/**
 		Sends a status `100 Continue` to the client.
