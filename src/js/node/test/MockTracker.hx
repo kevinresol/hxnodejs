@@ -77,7 +77,7 @@ extern class MockTracker {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/test.html#mockpropertyobject-propertyname-value
 	**/
-	function property(object:{}, propertyName:EitherType<String, Symbol>, ?value:Dynamic):MockedProperty;
+	function property(object:{}, propertyName:EitherType<String, Symbol>, ?value:Any):MockedProperty;
 
 	/**
 		Restore default behavior of all mocks created by this tracker and
@@ -150,19 +150,19 @@ typedef MockModuleOptions = {
 	/**
 		Mocked exports object. Prefer this over deprecated `defaultExport` / `namedExports`.
 	**/
-	@:optional var exports:Dynamic;
+	@:optional var exports:Any;
 
 	/**
 		Deprecated. Prefer `exports.default`.
 	**/
 	@:deprecated("Prefer options.exports.default")
-	@:optional var defaultExport:Dynamic;
+	@:optional var defaultExport:Any;
 
 	/**
 		Deprecated. Prefer `options.exports`.
 	**/
 	@:deprecated("Prefer options.exports")
-	@:optional var namedExports:Dynamic;
+	@:optional var namedExports:Any;
 }
 
 /**
@@ -170,28 +170,30 @@ typedef MockModuleOptions = {
 	Callable; inspect or reconfigure via `mock`.
 **/
 @:callable
-abstract MockedFunction(Dynamic) from Dynamic to Dynamic {
+// FIXME: underlying Any (not a dedicated mock type) — Haxe `Any` has no field access; cast required for `.mock`.
+abstract MockedFunction(Any) from Any to Any {
 	/**
 		`MockFunctionContext` for inspecting and changing mock behavior.
 	**/
 	public var mock(get, never):MockFunctionContext;
 
 	inline function get_mock():MockFunctionContext
-		return this.mock;
+		return (cast this).mock;
 }
 
 /**
 	A mocked property proxy returned by `MockTracker.property`.
 **/
 @:forward
-abstract MockedProperty(Dynamic) from Dynamic to Dynamic {
+// FIXME: underlying Any (not a dedicated mock type) — Haxe `Any` has no field access; cast required for `.mock`.
+abstract MockedProperty(Any) from Any to Any {
 	/**
 		`MockPropertyContext` for inspecting and changing mock behavior.
 	**/
 	public var mock(get, never):MockPropertyContext;
 
 	inline function get_mock():MockPropertyContext
-		return this.mock;
+		return (cast this).mock;
 }
 
 /**
@@ -238,17 +240,17 @@ typedef MockFunctionCall = {
 	/**
 		Arguments passed to the mock.
 	**/
-	var arguments:Array<Dynamic>;
+	var arguments:Array<Any>;
 
 	/**
 		Thrown value, if any.
 	**/
-	@:optional var error:Dynamic;
+	@:optional var error:Any;
 
 	/**
 		Return value of the mock.
 	**/
-	var result:Dynamic;
+	var result:Any;
 
 	/**
 		Error whose stack identifies the callsite.
@@ -263,7 +265,7 @@ typedef MockFunctionCall = {
 	/**
 		`this` value for the invocation.
 	**/
-	@:native("this") var this_:Dynamic;
+	@:native("this") var this_:Any;
 }
 
 /**
@@ -297,12 +299,12 @@ extern class MockPropertyContext {
 	/**
 		Change the value returned by the mocked property getter.
 	**/
-	function mockImplementation(value:Dynamic):Void;
+	function mockImplementation(value:Any):Void;
 
 	/**
 		Change the mocked value for a single access.
 	**/
-	function mockImplementationOnce(value:Dynamic, ?onAccess:Int):Void;
+	function mockImplementationOnce(value:Any, ?onAccess:Int):Void;
 
 	/**
 		Reset the access history of the mocked property.
@@ -327,7 +329,7 @@ typedef MockPropertyAccess = {
 	/**
 		Value that was read or written.
 	**/
-	var value:Dynamic;
+	var value:Any;
 
 	/**
 		Error whose stack identifies the callsite.
