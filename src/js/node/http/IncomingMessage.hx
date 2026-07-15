@@ -117,7 +117,7 @@ extern class IncomingMessage extends Readable<IncomingMessage> {
 		The request method as a string.
 		Read only. Example: `'GET'`, `'DELETE'`.
 	**/
-	var method(default, null):Method;
+	final method:Method;
 
 	/**
 		The raw request/response headers list exactly as they were received.
