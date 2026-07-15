@@ -32,7 +32,7 @@ import js.lib.Promise;
 **/
 @:native("WritableStream")
 extern class WritableStream {
-	var locked(default, null):Bool;
+	final locked:Bool;
 
 	function new(?underlyingSink:WritableStreamUnderlyingSink, ?strategy:QueuingStrategy):Void;
 

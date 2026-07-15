@@ -29,7 +29,7 @@ package js.node.web;
 **/
 @:native("WritableStreamDefaultController")
 extern class WritableStreamDefaultController {
-	var signal(default, null):AbortSignal;
+	final signal:AbortSignal;
 
 	function error(?e:Any):Void;
 }

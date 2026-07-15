@@ -32,17 +32,17 @@ extern class CloseEvent extends Event {
 	/**
 		Whether the connection closed cleanly.
 	**/
-	var wasClean(default, null):Bool;
+	final wasClean:Bool;
 
 	/**
 		The WebSocket connection close code.
 	**/
-	var code(default, null):Int;
+	final code:Int;
 
 	/**
 		The reason the WebSocket connection closed.
 	**/
-	var reason(default, null):String;
+	final reason:String;
 
 	function new(type:String, ?eventInitDict:CloseEventInit):Void;
 }

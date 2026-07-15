@@ -58,8 +58,8 @@ typedef LockOptions = {
 	A held lock passed to the `LockManager.request` callback.
 **/
 typedef Lock = {
-	var name(default, null):String;
-	var mode(default, null):String;
+	final name:String;
+	final mode:String;
 }
 
 /**

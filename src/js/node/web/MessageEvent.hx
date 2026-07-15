@@ -32,27 +32,27 @@ extern class MessageEvent extends Event {
 	/**
 		The data sent by the message emitter.
 	**/
-	var data(default, null):Any;
+	final data:Any;
 
 	/**
 		The origin of the message.
 	**/
-	var origin(default, null):String;
+	final origin:String;
 
 	/**
 		A unique ID for the event.
 	**/
-	var lastEventId(default, null):String;
+	final lastEventId:String;
 
 	/**
 		A `MessagePort` object or `null`.
 	**/
-	var source(default, null):Null<MessagePort>;
+	final source:Null<MessagePort>;
 
 	/**
 		An array of `MessagePort` objects.
 	**/
-	var ports(default, null):Array<MessagePort>;
+	final ports:Array<MessagePort>;
 
 	function new(type:String, ?eventInitDict:MessageEventInit):Void;
 

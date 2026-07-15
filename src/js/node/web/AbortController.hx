@@ -33,7 +33,7 @@ extern class AbortController {
 	/**
 		The `AbortSignal` object associated with this controller.
 	**/
-	var signal(default, null):AbortSignal;
+	final signal:AbortSignal;
 
 	function new():Void;
 

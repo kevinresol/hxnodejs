@@ -33,7 +33,7 @@ extern class CustomEvent extends Event {
 	/**
 		Custom data passed when initializing the event.
 	**/
-	var detail(default, null):Any;
+	final detail:Any;
 
 	function new(type:String, ?eventInitDict:CustomEventInit):Void;
 }

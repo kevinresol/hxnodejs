@@ -30,12 +30,12 @@ package js.node.web;
 **/
 @:native("TextDecoderStream")
 extern class TextDecoderStream {
-	var encoding(default, null):String;
-	var fatal(default, null):Bool;
-	var ignoreBOM(default, null):Bool;
+	final encoding:String;
+	final fatal:Bool;
+	final ignoreBOM:Bool;
 
-	var readable(default, null):ReadableStream;
-	var writable(default, null):WritableStream;
+	final readable:ReadableStream;
+	final writable:WritableStream;
 
 	function new(?label:String, ?options:TextDecoderStreamOptions):Void;
 }

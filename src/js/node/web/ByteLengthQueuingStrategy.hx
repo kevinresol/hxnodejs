@@ -32,7 +32,7 @@ package js.node.web;
 extern class ByteLengthQueuingStrategy {
 	function new(init:{var highWaterMark:Float;}):Void;
 
-	var highWaterMark(default, null):Float;
+	final highWaterMark:Float;
 
 	/**
 		Returns the byte length of `chunk`.

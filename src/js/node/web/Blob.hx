@@ -41,12 +41,12 @@ extern class Blob {
 	/**
 		The total size of the `Blob` in bytes.
 	**/
-	var size(default, null):Int;
+	final size:Int;
 
 	/**
 		The content-type of the `Blob`.
 	**/
-	var type(default, null):String;
+	final type:String;
 
 	function new(?sources:Array<BlobPart>, ?options:BlobPropertyBag):Void;
 

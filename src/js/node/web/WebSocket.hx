@@ -43,11 +43,11 @@ extern class WebSocket extends EventTarget {
 	static inline var CLOSED:Int = 3;
 
 	var binaryType:String;
-	var bufferedAmount(default, null):Int;
-	var extensions(default, null):String;
-	var protocol(default, null):String;
-	var readyState(default, null):Int;
-	var url(default, null):String;
+	final bufferedAmount:Int;
+	final extensions:String;
+	final protocol:String;
+	final readyState:Int;
+	final url:String;
 
 	var onopen:Null<Event->Void>;
 	var onerror:Null<Event->Void>;

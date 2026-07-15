@@ -29,7 +29,7 @@ package js.node.web;
 **/
 @:native("ReadableStreamDefaultController")
 extern class ReadableStreamDefaultController {
-	var desiredSize(default, null):Null<Float>;
+	final desiredSize:Null<Float>;
 
 	function close():Void;
 	function enqueue(?chunk:Any):Void;

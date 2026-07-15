@@ -33,10 +33,10 @@ extern class TextEncoderStream {
 	/**
 		Always `"utf-8"`.
 	**/
-	var encoding(default, null):String;
+	final encoding:String;
 
-	var readable(default, null):ReadableStream;
-	var writable(default, null):WritableStream;
+	final readable:ReadableStream;
+	final writable:WritableStream;
 
 	function new():Void;
 }

@@ -51,12 +51,12 @@ extern class AbortSignal extends EventTarget {
 	/**
 		True after the associated `AbortController` has been aborted.
 	**/
-	var aborted(default, null):Bool;
+	final aborted:Bool;
 
 	/**
 		An optional reason specified when the `AbortSignal` was triggered.
 	**/
-	var reason(default, null):Any;
+	final reason:Any;
 
 	/**
 		An optional callback function that may be set by user code to be notified

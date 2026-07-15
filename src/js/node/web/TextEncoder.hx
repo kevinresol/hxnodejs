@@ -37,7 +37,7 @@ extern class TextEncoder {
 	/**
 		Always `'utf-8'`.
 	**/
-	var encoding(default, null):String;
+	final encoding:String;
 
 	function new():Void;
 

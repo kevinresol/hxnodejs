@@ -30,8 +30,8 @@ package js.node.web;
 **/
 @:native("CompressionStream")
 extern class CompressionStream {
-	var readable(default, null):ReadableStream;
-	var writable(default, null):WritableStream;
+	final readable:ReadableStream;
+	final writable:WritableStream;
 
 	/**
 		@param format One of `'deflate'`, `'deflate-raw'`, `'gzip'`, or `'brotli'`.

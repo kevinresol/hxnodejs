@@ -36,30 +36,30 @@ extern class Navigator {
 	/**
 		The number of logical processors available.
 	**/
-	var hardwareConcurrency(default, null):Int;
+	final hardwareConcurrency:Int;
 
 	/**
 		The Web Locks API interface.
 	**/
-	var locks(default, null):LockManager;
+	final locks:LockManager;
 
 	/**
 		Preferred language of the Node.js instance.
 	**/
-	var language(default, null):String;
+	final language:String;
 
 	/**
 		An array of preferred languages.
 	**/
-	var languages(default, null):Array<String>;
+	final languages:Array<String>;
 
 	/**
 		The user agent of this Node.js instance.
 	**/
-	var userAgent(default, null):String;
+	final userAgent:String;
 
 	/**
 		The platform of this Node.js instance.
 	**/
-	var platform(default, null):String;
+	final platform:String;
 }

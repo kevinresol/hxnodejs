@@ -38,33 +38,33 @@ extern class Event {
 	/**
 		The event type identifier.
 	**/
-	var type(default, null):String;
+	final type:String;
 
 	/**
 		The `EventTarget` dispatching the event.
 	**/
-	var target(default, null):EventTarget;
+	final target:EventTarget;
 
 	/**
 		Alias for `target`.
 	**/
-	var currentTarget(default, null):EventTarget;
+	final currentTarget:EventTarget;
 
 	/**
 		Returns `0` while an event is not being dispatched, `2` while it is being dispatched.
 		This is not used in Node.js and is provided purely for completeness.
 	**/
-	var eventPhase(default, null):Int;
+	final eventPhase:Int;
 
 	/**
 		Always returns `false` in Node.js. Provided purely for completeness.
 	**/
-	var bubbles(default, null):Bool;
+	final bubbles:Bool;
 
 	/**
 		True if the event was created with the `cancelable` option.
 	**/
-	var cancelable(default, null):Bool;
+	final cancelable:Bool;
 
 	/**
 		True if the event has not been canceled.
@@ -77,23 +77,23 @@ extern class Event {
 	/**
 		Is `true` if `cancelable` is `true` and `preventDefault()` has been called.
 	**/
-	var defaultPrevented(default, null):Bool;
+	final defaultPrevented:Bool;
 
 	/**
 		Always returns `false` in Node.js. Provided purely for completeness.
 	**/
-	var composed(default, null):Bool;
+	final composed:Bool;
 
 	/**
 		The `"abort"` event is emitted with `isTrusted` set to `true`.
 		The value is `false` in all other cases.
 	**/
-	var isTrusted(default, null):Bool;
+	final isTrusted:Bool;
 
 	/**
 		The millisecond timestamp when the `Event` object was created.
 	**/
-	var timeStamp(default, null):Float;
+	final timeStamp:Float;
 
 	/**
 		Alias for `stopPropagation()` if set to `true`.
@@ -109,7 +109,7 @@ extern class Event {
 		Stability: 3 - Legacy.
 	**/
 	@:deprecated("Use target instead")
-	var srcElement(default, null):EventTarget;
+	final srcElement:EventTarget;
 
 	function new(type:String, ?eventInitDict:EventInit):Void;
 

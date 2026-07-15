@@ -35,7 +35,7 @@ extern class BroadcastChannel extends EventTarget {
 	/**
 		The channel name.
 	**/
-	var name(default, null):String;
+	final name:String;
 
 	var onmessage:Null<MessageEvent->Void>;
 	var onmessageerror:Null<MessageEvent->Void>;

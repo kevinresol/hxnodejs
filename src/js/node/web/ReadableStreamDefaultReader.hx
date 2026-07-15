@@ -37,7 +37,7 @@ extern class ReadableStreamDefaultReader {
 	/**
 		A promise that fulfills when the stream closes, or rejects on error.
 	**/
-	var closed(default, null):Promise<Void>;
+	final closed:Promise<Void>;
 
 	/**
 		Returns a promise for the next chunk.

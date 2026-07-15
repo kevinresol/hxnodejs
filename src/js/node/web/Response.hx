@@ -53,20 +53,20 @@ extern class Response {
 	**/
 	static function json(data:Any, ?init:ResponseInit):Response;
 
-	var type(default, null):String;
-	var url(default, null):String;
-	var redirected(default, null):Bool;
-	var status(default, null):Int;
-	var ok(default, null):Bool;
-	var statusText(default, null):String;
-	var headers(default, null):Headers;
+	final type:String;
+	final url:String;
+	final redirected:Bool;
+	final status:Int;
+	final ok:Bool;
+	final statusText:String;
+	final headers:Headers;
 
 	/**
 		A `ReadableStream` of the body contents, or `null`.
 	**/
-	var body(default, null):Null<ReadableStream>;
+	final body:Null<ReadableStream>;
 
-	var bodyUsed(default, null):Bool;
+	final bodyUsed:Bool;
 
 	function new(?body:BodyInit, ?init:ResponseInit):Void;
 
