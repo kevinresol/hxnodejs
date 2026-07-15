@@ -543,15 +543,16 @@ typedef IsDeepStrictEqualOptions = {
 /**
 	Logger returned by `Util.debuglog` / `Util.debug`.
 **/
+// FIXME: underlying Any (callable debug logger) — Haxe `Any` has no field access; cast required for `.enabled`.
 @:callable
-abstract DebugLogger(Dynamic) from Dynamic to Dynamic {
+abstract DebugLogger(Any) from Any to Any {
 	/**
 		`true` when `NODE_DEBUG` enables this logger's section.
 	**/
 	public var enabled(get, never):Bool;
 
 	inline function get_enabled():Bool
-		return this.enabled;
+		return (cast this).enabled;
 }
 
 /**
