@@ -231,8 +231,8 @@ enum abstract ChildProcessSpawnOptionsStdioBehaviour(String) from String to Stri
 
 // see https://github.com/HaxeFoundation/haxe/issues/3499
 // Ideal type: Array<EitherType<ChildProcessSpawnOptionsStdioBehaviour, EitherType<IStream, Int>>>
-// TODO(section-5): replace Array<Dynamic> once nested EitherType arrays type-check reliably
-typedef ChildProcessSpawnOptionsStdioFull = Array<Dynamic>;
+// TODO(section-5): replace Array<Any> once nested EitherType arrays type-check reliably
+typedef ChildProcessSpawnOptionsStdioFull = Array<Any>;
 
 /**
 	Common options for `exec` and `execFile` methods.
