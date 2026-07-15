@@ -87,7 +87,7 @@ extern class Http {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/http.html#httpmaxheadersize
 	**/
-	static var maxHeaderSize(default, null):Int;
+	static final maxHeaderSize:Int;
 
 	/**
 		Node.js maintains several connections per server to make HTTP requests.

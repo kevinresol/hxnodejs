@@ -380,7 +380,7 @@ extern class Tls {
 		Immutable array of PEM root certificates from the bundled Mozilla CA store
 		shipped with the current Node.js version.
 	**/
-	static var rootCertificates(default, null):Array<String>;
+	static final rootCertificates:Array<String>;
 
 	/**
 		Size of the slab buffer used by all TLS servers and clients.
