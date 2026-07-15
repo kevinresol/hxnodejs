@@ -94,7 +94,7 @@ enum abstract ChildProcessEvent<T:haxe.Constraints.Function>(Event<T>) to Event<
 			message - a parsed JSON object or primitive value
 			sendHandle - a `net.Socket`, `net.Server`, or `dgram.Socket` when one was sent
 	**/
-	var Message:ChildProcessEvent<(message:Dynamic, sendHandle:Null<ChildProcessSendHandle>) -> Void> = "message";
+	var Message:ChildProcessEvent<(message:Any, sendHandle:Null<ChildProcessSendHandle>) -> Void> = "message";
 
 	/**
 		The `'spawn'` event is emitted once the child process has spawned successfully.
@@ -232,9 +232,9 @@ extern class ChildProcess extends EventEmitter<ChildProcess> {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/child_process.html#subprocesssendmessage-sendhandle-options-callback
 	**/
-	@:overload(function(message:Dynamic, sendHandle:ChildProcessSendHandle, options:ChildProcessSendOptions, ?callback:Null<Error>->Void):Bool {})
-	@:overload(function(message:Dynamic, sendHandle:ChildProcessSendHandle, ?callback:Null<Error>->Void):Bool {})
-	function send(message:Dynamic, ?callback:Null<Error>->Void):Bool;
+	@:overload(function(message:Any, sendHandle:ChildProcessSendHandle, options:ChildProcessSendOptions, ?callback:Null<Error>->Void):Bool {})
+	@:overload(function(message:Any, sendHandle:ChildProcessSendHandle, ?callback:Null<Error>->Void):Bool {})
+	function send(message:Any, ?callback:Null<Error>->Void):Bool;
 
 	/**
 		Close the IPC channel between parent and child, allowing the child to exit gracefully once there are no other
