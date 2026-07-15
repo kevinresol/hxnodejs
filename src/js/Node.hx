@@ -97,9 +97,10 @@ extern class Node {
 	/**
 		This variable may appear to be global but is not. See [exports](https://nodejs.org/api/modules.html#modules_exports).
 	**/
-	static var exports(get, never):Any;
+	// TODO: outer Dynamic<> retained — Any has no arbitrary field access (Haxe limitation); needed for `exports.foo`
+	static var exports(get, never):Dynamic<Any>;
 
-	private static inline function get_exports():Any {
+	private static inline function get_exports():Dynamic<Any> {
 		return code("exports");
 	}
 
@@ -121,16 +122,18 @@ extern class Node {
 		Stability: 3 - Legacy. Use `globalThis` instead.
 	**/
 	@:deprecated("Use globalThis instead")
-	static inline var global:Any = cast Node;
+	// TODO: outer Dynamic<> retained — Any has no arbitrary field access (Haxe limitation); needed for `global.foo`
+	static inline var global:Dynamic<Any> = cast Node;
 
 	/**
 		`globalThis` is the universal way to access the global object.
 
 		@see https://nodejs.org/api/globals.html#globalthis
 	**/
-	static var globalThis(get, never):Any;
+	// TODO: outer Dynamic<> retained — Any has no arbitrary field access (Haxe limitation); needed for `globalThis.foo`
+	static var globalThis(get, never):Dynamic<Any>;
 
-	private static inline function get_globalThis():Any {
+	private static inline function get_globalThis():Dynamic<Any> {
 		return code("globalThis");
 	}
 
