@@ -70,7 +70,7 @@ typedef ScriptOptions = {
 
 		// TODO(vm): type importModuleDynamically callback
 	**/
-	@:optional var importModuleDynamically:Dynamic;
+	@:optional var importModuleDynamically:Any;
 }
 
 /**
@@ -171,15 +171,13 @@ extern class Script {
 
 	/**
 		Runs this script in the current `global` context.
-
-		// TODO(vm): Dynamic is intentional for arbitrary JS eval results
 	**/
-	function runInThisContext(?options:ScriptRunOptions):Dynamic;
+	function runInThisContext(?options:ScriptRunOptions):Any;
 
 	/**
 		Runs this script in `contextifiedObject` (from `Vm.createContext`).
 	**/
-	function runInContext(contextifiedObject:VmContext<Dynamic>, ?options:ScriptRunOptions):Dynamic;
+	function runInContext(contextifiedObject:VmContext<{}>, ?options:ScriptRunOptions):Any;
 
 	/**
 		Creates a new context (optionally from `contextObject`), runs this script in it, and returns the result.
@@ -187,6 +185,6 @@ extern class Script {
 		`contextObject` may be an object to contextify, omitted/`undefined` for a fresh contextified object,
 		or `Vm.constants.DONT_CONTEXTIFY`.
 	**/
-	@:overload(function(?contextObject:Dynamic):Dynamic {})
-	function runInNewContext(contextObject:Dynamic, ?options:ScriptRunInNewContextOptions):Dynamic;
+	@:overload(function(?contextObject:Any):Any {})
+	function runInNewContext(contextObject:Any, ?options:ScriptRunInNewContextOptions):Any;
 }

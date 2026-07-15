@@ -77,7 +77,7 @@ typedef VmCreateContextOptions = {
 		May also be `Vm.constants.USE_MAIN_CONTEXT_DEFAULT_LOADER`.
 		// TODO(vm): type importModuleDynamically callback
 	**/
-	@:optional var importModuleDynamically:Dynamic;
+	@:optional var importModuleDynamically:Any;
 }
 
 typedef VmCodeGenerationOptions = {
@@ -103,13 +103,13 @@ typedef VmCompileFunctionOptions = {
 	/**
 		The contextified object in which the function should be compiled.
 	**/
-	@:optional var parsingContext:VmContext<Dynamic>;
+	@:optional var parsingContext:VmContext<{}>;
 
 	/**
 		An array containing context extension objects. Modules and wrappers used in `code` will be
 		available as if they were referenced from these objects. Default: `[]`.
 	**/
-	@:optional var contextExtensions:Array<DynamicAccess<Dynamic>>;
+	@:optional var contextExtensions:Array<DynamicAccess<Any>>;
 }
 
 /**
@@ -134,7 +134,12 @@ typedef VmMemoryMeasurement = {
 	var total:VmMemoryInfo;
 	@:optional var current:VmMemoryInfo;
 	@:optional var other:Array<VmMemoryInfo>;
-	@:optional var WebAssembly:Dynamic;
+	/**
+		V8-specific WebAssembly memory breakdown when present.
+
+		// TODO(vm): type WebAssembly measureMemory fields when documented
+	**/
+	@:optional var WebAssembly:Any;
 }
 
 /**
@@ -172,10 +177,8 @@ extern class Vm {
 	/**
 		Compiles `code`, runs it in the current `global`, and returns the result.
 		Running code does not have access to local scope.
-
-		// TODO(vm): Dynamic is intentional for arbitrary JS eval results; refine per-call sites when possible
 	**/
-	static function runInThisContext(code:String, ?options:EitherType<String, VmRunOptions>):Dynamic;
+	static function runInThisContext(code:String, ?options:EitherType<String, VmRunOptions>):Any;
 
 	/**
 		Compiles `code`, contextifies `contextObject` if passed (or creates a new contextified object if omitted),
@@ -183,15 +186,15 @@ extern class Vm {
 
 		`contextObject` may also be `Vm.constants.DONT_CONTEXTIFY`.
 	**/
-	@:overload(function(code:String, ?contextObject:Dynamic):Dynamic {})
-	static function runInNewContext(code:String, contextObject:Dynamic, ?options:VmRunOptions):Dynamic;
+	@:overload(function(code:String, ?contextObject:Any):Any {})
+	static function runInNewContext(code:String, contextObject:Any, ?options:VmRunOptions):Any;
 
 	/**
 		Compiles `code`, then runs it in `contextifiedObject` and returns the result.
 		`contextifiedObject` must previously have been contextified via `createContext`.
 	**/
-	static function runInContext(code:String, contextifiedObject:VmContext<Dynamic>,
-		?options:EitherType<String, VmRunOptions>):Dynamic;
+	static function runInContext(code:String, contextifiedObject:VmContext<{}>,
+		?options:EitherType<String, VmRunOptions>):Any;
 
 	/**
 		Prepares `contextObject` so it can be used in `runInContext` / `Script.runInContext`, and returns it.
@@ -199,8 +202,8 @@ extern class Vm {
 		If `contextObject` is omitted, an empty contextified object is created.
 		Pass `Vm.constants.DONT_CONTEXTIFY` to create a context without contextifying quirks.
 	**/
-	@:overload(function():VmContext<Dynamic> {})
-	@:overload(function(contextObject:Dynamic, ?options:VmCreateContextOptions):VmContext<Dynamic> {})
+	@:overload(function():VmContext<{}> {})
+	@:overload(function(contextObject:Any, ?options:VmCreateContextOptions):VmContext<{}> {})
 	static function createContext<T:{}>(contextObject:T, ?options:VmCreateContextOptions):VmContext<T>;
 
 	/**
@@ -225,7 +228,7 @@ extern class Vm {
 		Removed from modern Node.js versions.
 	**/
 	@:deprecated("Removed from Node.js; use the inspector module instead")
-	static function runInDebugContext(code:String):Dynamic;
+	static function runInDebugContext(code:String):Any;
 
 	@:deprecated("Use new js.node.vm.Script(...) instead")
 	static function createScript(code:String, ?options:EitherType<String, ScriptOptions>):Script;
@@ -244,17 +247,19 @@ typedef VmConstants = {
 		Pass as `importModuleDynamically` to `Script` / `compileFunction` so Node.js uses the default
 		ESM loader from the main context to load the requested module.
 	**/
-	var USE_MAIN_CONTEXT_DEFAULT_LOADER:Dynamic;
+	var USE_MAIN_CONTEXT_DEFAULT_LOADER:Any;
 
 	/**
 		Pass as `contextObject` to `createContext` / `runInNewContext` to create a context whose global
 		is an ordinary object (without contextifying quirks such as inability to freeze).
 	**/
-	var DONT_CONTEXTIFY:Dynamic;
+	var DONT_CONTEXTIFY:Any;
 }
 
 /**
 	Type of context objects returned by `Vm.createContext`.
+
+	// FIXME(vm): cannot use VmContext<Any> — T:{} rejects Any; use VmContext<{}> for unknown contexts
 **/
 @:forward
 abstract VmContext<T:{}>(T) from T to T {}

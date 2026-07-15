@@ -36,7 +36,7 @@ typedef SyntheticModuleOptions = {
 	/**
 		The contextified object to compile and evaluate this module in.
 	**/
-	@:optional var context:VmContext<Dynamic>;
+	@:optional var context:VmContext<{}>;
 }
 
 /**
@@ -61,5 +61,5 @@ extern class SyntheticModule extends Module {
 	/**
 		Sets the module export binding slot for `name` to `value`.
 	**/
-	function setExport(name:String, value:Dynamic):Void;
+	function setExport(name:String, value:Any):Void;
 }
