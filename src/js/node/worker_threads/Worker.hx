@@ -53,9 +53,8 @@ enum abstract WorkerEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
 
 	/**
 		Emitted when the worker invokes `parentPort.postMessage()`.
-		// TODO(section-5): message value is structured-clone Dynamic
 	**/
-	var Message:WorkerEvent<(value:Dynamic) -> Void> = "message";
+	var Message:WorkerEvent<(value:Any) -> Void> = "message";
 
 	/**
 		Emitted when deserializing a message failed.
@@ -89,9 +88,8 @@ extern class Worker extends EventEmitter<Worker> {
 	/**
 		Send a message to the worker that will be received via
 		`require('worker_threads').parentPort.on('message')`.
-		// TODO(section-5): value typing for structured clone remains application-defined Dynamic
 	**/
-	function postMessage(value:Dynamic, ?transferList:Array<Transferable>):Void;
+	function postMessage(value:Any, ?transferList:Array<Transferable>):Void;
 
 	/**
 		Opposite of `unref()`. Calling `ref()` on a previously `unref`ed worker
@@ -184,9 +182,8 @@ extern class Worker extends EventEmitter<Worker> {
 typedef WorkerOptions = {
 	/**
 		Additional data cloned into the worker as `workerData`.
-		// TODO(section-5): workerData typing is application-defined
 	**/
-	@:optional var workerData:Dynamic;
+	@:optional var workerData:Any;
 
 	/**
 		List of transferable objects to pass alongside `workerData`.
@@ -196,7 +193,7 @@ typedef WorkerOptions = {
 	/**
 		Arguments stringified and appended to `process.argv` in the worker.
 	**/
-	@:optional var argv:Array<Dynamic>;
+	@:optional var argv:Array<Any>;
 
 	/**
 		If `true` and `filename` is a string, interpret it as a script to evaluate

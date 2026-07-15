@@ -51,9 +51,8 @@ extern class WorkerThreads {
 
 	/**
 		Arbitrary clone of data passed to this thread's `Worker` constructor.
-		// TODO(section-5): workerData is application-defined; typed as Dynamic
 	**/
-	static final workerData:Dynamic;
+	static final workerData:Any;
 
 	/**
 		`true` if this code is not running inside of a `Worker` thread.
@@ -95,30 +94,29 @@ extern class WorkerThreads {
 
 	/**
 		Returns a clone of data set by `setEnvironmentData` in the spawning thread.
-		// TODO(section-5): environment data value typing is application-defined
 	**/
-	static function getEnvironmentData(key:Dynamic):Dynamic;
+	static function getEnvironmentData(key:Any):Any;
 
 	/**
 		Sets environment data cloned into all new `Worker` instances from this context.
 		Passing `value` as `undefined` deletes any previously set value for `key`.
 	**/
-	static function setEnvironmentData(key:Dynamic, ?value:Dynamic):Void;
+	static function setEnvironmentData(key:Any, ?value:Any):Void;
 
 	/**
 		Marks an object as not transferable. Occurrence in a transfer list throws.
 	**/
-	static function markAsUntransferable(object:Dynamic):Void;
+	static function markAsUntransferable(object:Any):Void;
 
 	/**
 		Returns `true` if the object has been marked as untransferable.
 	**/
-	static function isMarkedAsUntransferable(object:Dynamic):Bool;
+	static function isMarkedAsUntransferable(object:Any):Bool;
 
 	/**
 		Marks an object as not cloneable for structured clone / `postMessage`.
 	**/
-	static function markAsUncloneable(object:Dynamic):Void;
+	static function markAsUncloneable(object:Any):Void;
 
 	/**
 		Sends a value to another worker identified by `threadId`.
@@ -126,19 +124,19 @@ extern class WorkerThreads {
 
 		Stability: 1.1 - Active development.
 	**/
-	static function postMessageToThread(threadId:Int, value:Dynamic, ?transferList:Array<Transferable>, ?timeout:Int):Promise<Void>;
+	static function postMessageToThread(threadId:Int, value:Any, ?transferList:Array<Transferable>, ?timeout:Int):Promise<Void>;
 
 	/**
 		Receive a single queued message from `port` without emitting `'message'`.
 		Returns `undefined` when the queue is empty.
 	**/
-	static function receiveMessageOnPort(port:EitherType<MessagePort, BroadcastChannel>):Null<{message:Dynamic}>;
+	static function receiveMessageOnPort(port:EitherType<MessagePort, BroadcastChannel>):Null<{message:Any}>;
 
 	/**
 		Transfers `port` into `contextifiedSandbox`, returning a port that inherits
 		from the target context's `Object`.
 	**/
-	static function moveMessagePortToContext(port:MessagePort, contextifiedSandbox:VmContext<Dynamic>):MessagePort;
+	static function moveMessagePortToContext(port:MessagePort, contextifiedSandbox:VmContext<{}>):MessagePort;
 }
 
 /**
