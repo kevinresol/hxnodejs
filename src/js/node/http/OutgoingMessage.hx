@@ -88,7 +88,7 @@ extern class OutgoingMessage extends Writable<OutgoingMessage> {
 	/**
 		Boolean (read-only). `true` if headers were sent, otherwise `false`.
 	**/
-	var headersSent(default, null):Bool;
+	final headersSent:Bool;
 
 	/**
 		Removes a header that's queued for implicit sending.

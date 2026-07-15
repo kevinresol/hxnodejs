@@ -115,7 +115,7 @@ extern class ServerResponse extends Writable<ServerResponse> {
 	/**
 		Boolean (read-only). True if headers were sent, false otherwise.
 	**/
-	var headersSent(default, null):Bool;
+	final headersSent:Bool;
 
 	/**
 		Removes a header that's queued for implicit sending.

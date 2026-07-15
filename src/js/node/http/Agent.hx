@@ -102,7 +102,7 @@ extern class Agent {
 		An object which contains arrays of sockets currently awaiting use by the agent when keepAlive is enabled.
 		Do not modify.
 	**/
-	var freeSockets(default, null):DynamicAccess<Array<Socket>>;
+	final freeSockets:DynamicAccess<Array<Socket>>;
 
 	/**
 		Get a unique name for a set of request options, to determine whether a connection can be reused.
@@ -133,13 +133,13 @@ extern class Agent {
 		An object which contains queues of requests that have not yet been assigned to sockets.
 		Do not modify.
 	**/
-	var requests(default, null):DynamicAccess<Array<ClientRequest>>;
+	final requests:DynamicAccess<Array<ClientRequest>>;
 
 	/**
 		An object which contains arrays of sockets currently in use by the agent.
 		Do not modify.
 	**/
-	var sockets(default, null):DynamicAccess<Array<Socket>>;
+	final sockets:DynamicAccess<Array<Socket>>;
 
 	/**
 		Default port to use when the port is not specified in requests.
