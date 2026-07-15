@@ -41,7 +41,7 @@ typedef TracingChannelChannels = {
 /**
 	Handler for a tracing channel message.
 **/
-typedef TracingChannelMessageHandler = (message:Dynamic) -> Void;
+typedef TracingChannelMessageHandler = (message:Any) -> Void;
 
 /**
 	Set of TracingChannel Channels subscribers.
@@ -154,7 +154,7 @@ extern class TracingChannel {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/diagnostics_channel.html#tracingchanneltracesyncfn-context-thisarg-args
 	**/
-	function traceSync(fn:Function, ?context:{}, ?thisArg:Dynamic, args:Rest<Dynamic>):Dynamic;
+	function traceSync(fn:Function, ?context:{}, ?thisArg:Any, args:Rest<Any>):Any;
 
 	/**
 		Trace a promise-returning function call. This will always produce a `start`
@@ -165,7 +165,7 @@ extern class TracingChannel {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/diagnostics_channel.html#tracingchanneltracepromisefn-context-thisarg-args
 	**/
-	function tracePromise(fn:Function, ?context:{}, ?thisArg:Dynamic, args:Rest<Dynamic>):Promise<Dynamic>;
+	function tracePromise(fn:Function, ?context:{}, ?thisArg:Any, args:Rest<Any>):Promise<Any>;
 
 	/**
 		Trace a callback-receiving function call. The callback is expected to follow
@@ -182,5 +182,5 @@ extern class TracingChannel {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/diagnostics_channel.html#tracingchanneltracecallbackfn-position-context-thisarg-args
 	**/
-	function traceCallback(fn:Function, ?position:Int, ?context:{}, ?thisArg:Dynamic, args:Rest<Dynamic>):Dynamic;
+	function traceCallback(fn:Function, ?position:Int, ?context:{}, ?thisArg:Any, args:Rest<Any>):Any;
 }
