@@ -49,6 +49,10 @@ typedef SecureContextPfxObject = {
 
 	Abstract + `@:from` so Haxe 4.0.5 can unify homogeneous array literals into
 	option bags (plain `EitherType` fails because arrays are invariant).
+
+	FIXME: keep underlying `Dynamic` (not `Any`) — Haxe 4.0.5 rejects inter-abstract
+	`from` on `Any`-backed abstracts ("You can only declare from/to with compatible
+	types"). Array invariance also prevents a precise EitherType underlying type.
 **/
 @:forward
 abstract SecureContextPemArray(Dynamic)
@@ -60,6 +64,9 @@ abstract SecureContextPemArray(Dynamic)
 	PEM material for SecureContext options.
 
 	Logically: `String | Buffer | Array<String | Buffer> | Array<String> | Array<Buffer>`.
+
+	FIXME: keep underlying `Dynamic` — same Haxe 4.0.5 `from`/`Any` limitation as
+	`SecureContextPemArray`.
 **/
 @:forward
 abstract SecureContextPemData(Dynamic)
@@ -72,6 +79,9 @@ abstract SecureContextPemData(Dynamic)
 
 /**
 	`key` option: PEM data or arrays including `{ pem, passphrase? }` objects.
+
+	FIXME: keep underlying `Dynamic` — same Haxe 4.0.5 `from`/`Any` limitation as
+	`SecureContextPemArray`.
 **/
 @:forward
 abstract SecureContextKeyData(Dynamic)
@@ -86,6 +96,9 @@ abstract SecureContextKeyData(Dynamic)
 
 /**
 	`pfx` option: PFX value or arrays including `{ buf, passphrase? }` objects.
+
+	FIXME: keep underlying `Dynamic` — same Haxe 4.0.5 `from`/`Any` limitation as
+	`SecureContextPemArray`.
 **/
 @:forward
 abstract SecureContextPfxData(Dynamic)
