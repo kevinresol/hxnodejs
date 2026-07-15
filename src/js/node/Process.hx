@@ -186,7 +186,7 @@ extern class Process extends EventEmitter<Process> {
 
 		@see https://nodejs.org/api/process.html#processargv0
 	**/
-	var argv0(default, null):String;
+	final argv0:String;
 
 	/**
 		Absolute pathname of the executable that started the process.
@@ -482,7 +482,7 @@ extern class Process extends EventEmitter<Process> {
 
 		@see https://nodejs.org/api/process.html#processallowednodeenvironmentflags
 	**/
-	var allowedNodeEnvironmentFlags(default, null):Set<String>;
+	final allowedNodeEnvironmentFlags:Set<String>;
 
 	/**
 		Compile/runtime feature availability flags.
