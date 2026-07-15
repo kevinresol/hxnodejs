@@ -55,7 +55,7 @@ extern class AsyncHooks {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/async_hooks.html#async_hooksexecutionasyncresource
 	**/
-	static function executionAsyncResource():Dynamic;
+	static function executionAsyncResource():Any;
 
 	/**
 		Returns the `asyncId` of the resource that caused (or "triggered") the current execution.
@@ -83,7 +83,7 @@ typedef AsyncHookOptions = {
 		Called during object construction when the resource is initialized.
 		The `resource` argument is the internal handle; its shape is undocumented.
 	**/
-	@:optional var init:(asyncId:Float, type:String, triggerAsyncId:Float, resource:Dynamic) -> Void;
+	@:optional var init:(asyncId:Float, type:String, triggerAsyncId:Float, resource:Any) -> Void;
 
 	/**
 		Called just before the resource's callback is called.

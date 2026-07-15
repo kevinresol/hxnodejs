@@ -51,7 +51,7 @@ extern class AsyncResource {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/async_context.html#asyncresourceruninasyncscopefn-thisarg-args
 	**/
-	function runInAsyncScope(fn:Function, ?thisArg:Dynamic, args:Rest<Dynamic>):Dynamic;
+	function runInAsyncScope(fn:Function, ?thisArg:Any, args:Rest<Any>):Any;
 
 	/**
 		Call all `destroy` hooks. Must be called manually exactly once;
@@ -80,7 +80,7 @@ extern class AsyncResource {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/async_context.html#asyncresourcebindfn-thisarg
 	**/
-	function bind(fn:Function, ?thisArg:Dynamic):Function;
+	function bind(fn:Function, ?thisArg:Any):Function;
 
 	/**
 		Binds the given function to the current execution context.
@@ -89,7 +89,7 @@ extern class AsyncResource {
 		@see https://nodejs.org/docs/latest-v24.x/api/async_context.html#asyncresourcebindfn-type-thisarg
 	**/
 	@:native("bind")
-	static function bindStatic(fn:Function, ?type:String, ?thisArg:Dynamic):Function;
+	static function bindStatic(fn:Function, ?type:String, ?thisArg:Any):Function;
 }
 
 /**
