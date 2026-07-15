@@ -140,6 +140,7 @@ extern class V8 {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/v8.html#v8queryobjectsctor-options
 	**/
+	// TODO: typed queryObjects result once number / summary string[] (by format) union is modeled
 	static function queryObjects(ctor:Function, ?options:V8QueryObjectsOptions):Any;
 
 	/**
