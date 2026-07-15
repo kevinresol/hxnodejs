@@ -57,7 +57,7 @@ extern class Module {
 
 		@see https://nodejs.org/api/modules.html#moduleexports
 	**/
-	var exports:Dynamic;
+	var exports:Any;
 
 	/**
 		The fully resolved filename of the module.
@@ -117,7 +117,7 @@ extern class Module {
 
 		@see https://nodejs.org/api/modules.html#modulerequireid
 	**/
-	function require(id:String):Dynamic;
+	function require(id:String):Any;
 
 	/**
 		A list of the names of all modules provided by Node.js.
@@ -147,8 +147,8 @@ extern class Module {
 
 		@see https://nodejs.org/api/module.html#modulecreaterequirefilename
 	**/
-	@:overload(function(filename:URL):String->Dynamic {})
-	static function createRequire(filename:String):String->Dynamic;
+	@:overload(function(filename:URL):String->Any {})
+	static function createRequire(filename:String):String->Any;
 
 	/**
 		Updates all live bindings for builtin ES Modules to match the properties
@@ -365,7 +365,7 @@ typedef ModuleRegisterOptions = {
 	/**
 		Arbitrary cloneable value passed into the initialize hook.
 	**/
-	@:optional var data:Dynamic;
+	@:optional var data:Any;
 
 	/**
 		Transferable objects passed into the initialize hook.
