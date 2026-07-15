@@ -353,6 +353,8 @@ typedef WritableNewOptions = {
 		Implementation for the stream._final() method.
 		Exposed to JS as `final` via `WritableNewOptionsAdapter`.
 	**/
+	// TODO @native in typedef cannot work now
+	// @:native("final")
 	@:optional var final_:(callback:Null<Error>->Void) -> Void;
 
 	/**
