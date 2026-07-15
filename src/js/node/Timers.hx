@@ -51,7 +51,7 @@ extern class Timers {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/timers.html#setimmediatecallback-args
 	**/
-	static function setImmediate(callback:Function, args:Rest<Dynamic>):Immediate;
+	static function setImmediate(callback:Function, args:Rest<Any>):Immediate;
 
 	/**
 		Schedules repeated execution of `callback` every `delay` milliseconds.
@@ -65,8 +65,8 @@ extern class Timers {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/timers.html#setintervalcallback-delay-args
 	**/
-	@:overload(function(callback:Function, args:Rest<Dynamic>):Timeout {})
-	static function setInterval(callback:Function, delay:Float, args:Rest<Dynamic>):Timeout;
+	@:overload(function(callback:Function, args:Rest<Any>):Timeout {})
+	static function setInterval(callback:Function, delay:Float, args:Rest<Any>):Timeout;
 
 	/**
 		Schedules execution of a one-time `callback` after `delay` milliseconds.
@@ -84,8 +84,8 @@ extern class Timers {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/timers.html#settimeoutcallback-delay-args
 	**/
-	@:overload(function(callback:Function, args:Rest<Dynamic>):Timeout {})
-	static function setTimeout(callback:Function, delay:Float, args:Rest<Dynamic>):Timeout;
+	@:overload(function(callback:Function, args:Rest<Any>):Timeout {})
+	static function setTimeout(callback:Function, delay:Float, args:Rest<Any>):Timeout;
 
 	/**
 		Cancels an `Immediate` object created by `setImmediate()`.

@@ -40,8 +40,8 @@ extern class TimersPromises {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/timers.html#timerspromisessettimeoutdelay-value-options
 	**/
-	@:overload(function():Promise<Dynamic> {})
-	@:overload(function(delay:Float):Promise<Dynamic> {})
+	@:overload(function():Promise<Any> {})
+	@:overload(function(delay:Float):Promise<Any> {})
 	@:overload(function<T>(delay:Float, value:T):Promise<T> {})
 	static function setTimeout<T>(delay:Float, value:T, ?options:TimersPromisesOptions):Promise<T>;
 
@@ -51,7 +51,7 @@ extern class TimersPromises {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/timers.html#timerspromisessetimmediatevalue-options
 	**/
-	@:overload(function():Promise<Dynamic> {})
+	@:overload(function():Promise<Any> {})
 	@:overload(function<T>(value:T):Promise<T> {})
 	static function setImmediate<T>(value:T, ?options:TimersPromisesOptions):Promise<T>;
 
@@ -61,8 +61,8 @@ extern class TimersPromises {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/timers.html#timerspromisessetintervaldelay-value-options
 	**/
-	@:overload(function():TimersPromisesAsyncIterator<Dynamic> {})
-	@:overload(function(delay:Float):TimersPromisesAsyncIterator<Dynamic> {})
+	@:overload(function():TimersPromisesAsyncIterator<Any> {})
+	@:overload(function(delay:Float):TimersPromisesAsyncIterator<Any> {})
 	@:overload(function<T>(delay:Float, value:T):TimersPromisesAsyncIterator<T> {})
 	static function setInterval<T>(delay:Float, value:T, ?options:TimersPromisesOptions):TimersPromisesAsyncIterator<T>;
 

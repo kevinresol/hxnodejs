@@ -58,7 +58,8 @@ extern class Report {
 
 		@see https://nodejs.org/docs/latest-v24.x/api/process.html#processreportgetreporterr
 	**/
-	function getReport(?err:Error):Dynamic;
+	// TODO: typed diagnostic report object once a ReportData typedef is defined
+	function getReport(?err:Error):Any;
 
 	/**
 		If `true`, a diagnostic report is generated on fatal errors (such as out of memory) as defined by Node.
