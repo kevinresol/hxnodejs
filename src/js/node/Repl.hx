@@ -115,9 +115,9 @@ typedef ReplOptions = {
 		An `eval` function can error with `repl.Recoverable` to indicate the input was incomplete
 		and prompt for additional lines.
 
-		// TODO(section-5): replace DynamicAccess<Dynamic>/Dynamic result with a typed REPL context model
+		// TODO(section-5): replace DynamicAccess<Any>/Any result with a typed REPL context model
 	**/
-	@:optional var eval:(code:String, context:DynamicAccess<Dynamic>, file:String, cb:(error:Null<Error>, ?result:Dynamic) -> Void) -> Void;
+	@:optional var eval:(code:String, context:DynamicAccess<Any>, file:String, cb:(error:Null<Error>, ?result:Any) -> Void) -> Void;
 
 	/**
 		If `true`, specifies that the default `writer` function should include ANSI color styling to REPL output.
@@ -143,7 +143,7 @@ typedef ReplOptions = {
 		The function to invoke to format the output of each command before writing to `output`.
 		Default: `util.inspect()` / `repl.writer`.
 	**/
-	@:optional var writer:(obj:Dynamic) -> String;
+	@:optional var writer:(obj:Any) -> String;
 
 	/**
 		An optional function used for custom Tab auto completion.
@@ -175,7 +175,7 @@ typedef ReplOptions = {
 	Default REPL writer: callable formatter with `util.inspect`-compatible `options`.
 **/
 @:callable
-abstract ReplWriter((obj:Dynamic) -> String) from((obj:Dynamic) -> String) to((obj:Dynamic) -> String) {
+abstract ReplWriter((obj:Any) -> String) from((obj:Any) -> String) to((obj:Any) -> String) {
 	/**
 		Inspection options used by the default writer.
 	**/
